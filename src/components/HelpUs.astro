@@ -1,0 +1,37 @@
+---
+const helpWays = [
+  {
+    title: 'Adopta',
+    description: 'Dale un hogar permanente a uno de nuestros gatos rescatados.',
+  },
+  {
+    title: 'Dona',
+    description: 'Contribuye con gastos veterinarios, alimentación y cuidados.',
+  },
+  {
+    title: 'Voluntariado',
+    description: 'Únete a nuestro equipo y ayúdanos en nuestro día a día.',
+  },
+  {
+    title: 'Acogida',
+    description:
+      'Ofrece un hogar temporal mientras encuentran familia definitiva.',
+  },
+];
+---
+
+<section>
+  <h2>Cómo Puedes Ayudar</h2>
+  <p>
+    Hay muchas formas de colaborar con nosotros, encuentra la que mejor se
+    ajuste a ti.
+  </p>
+  {
+    helpWays.map((helpWay) => (
+      <article>
+        <h3>{helpWay.title}</h3>
+        <p>{helpWay.description}</p>
+      </article>
+    ))
+  }
+</section>

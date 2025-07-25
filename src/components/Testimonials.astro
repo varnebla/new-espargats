@@ -1,0 +1,40 @@
+---
+const testimonials = [
+  {
+    name: 'María',
+    description: 'Familia de Mimi',
+    testimonial:
+      'Adoptar a Mimi fue la mejor decisión. Llegó asustada y ahora es la reina de la casa. Gracias por todo el amor que le dieron.',
+  },
+  {
+    name: 'Carlos',
+    description: 'Familia de Coco',
+    testimonial:
+      'El proceso de adopción fue muy profesional. Nos asesoraron perfectamente y ahora Coco es parte de nuestra familia.',
+  },
+  {
+    name: 'Ana',
+    description: 'Voluntaria',
+    testimonial:
+      'Colaboro como voluntaria desde hace 2 años. Ver cómo estos gatos encuentran hogares amorosos no tiene precio.',
+  },
+];
+---
+
+<section>
+  <h2>Historias de Éxito</h2>
+  <p>
+    Las palabras de nuestras familias adoptivas nos motivan a seguir adelante.
+  </p>
+  <div>
+    {
+      testimonials.map((testimonial) => (
+        <article>
+          <p>{testimonial.testimonial}</p>
+          <h4>{testimonial.name}</h4>
+          <p>{testimonial.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

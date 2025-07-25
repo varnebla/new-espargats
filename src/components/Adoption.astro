@@ -1,0 +1,72 @@
+---
+const cats = [
+  {
+    name: 'Dulce',
+    age: '1 año',
+    gender: 'Macho',
+    image: 'https://via.placeholder.com/150',
+    description: 'Gato 1 es un gato muy bonito y juguetón.',
+    tags: ['Juguetón', 'Amigable', 'Cariñoso'],
+  },
+  {
+    name: 'Cactus',
+    age: '1 año',
+    gender: 'Macho',
+    image: 'https://via.placeholder.com/150',
+    description: 'Gato 1 es un gato muy bonito y juguetón.',
+    tags: ['Juguetón', 'Amigable', 'Cariñoso'],
+  },
+  {
+    name: 'Coco',
+    age: '1 año',
+    gender: 'Hembra',
+    image: 'https://via.placeholder.com/150',
+    description: 'Gato 1 es un gato muy bonito y juguetón.',
+    tags: ['Traviesa', 'Amigable', 'Cariñoso'],
+  },
+];
+---
+
+<section>
+  <h2>Encuentra tu Compañero Perfecto</h2>
+  <p>
+    Estos hermosos gatos están esperando una familia que les brinde amor y
+    cuidado. ¿Podrías ser tú quien les dé una segunda oportunidad?
+  </p>
+  <div>
+    {
+      cats.map((cat) => (
+        <article>
+          <img src={cat.image} alt={cat.name} width={150} height={150} />
+          <h4>{cat.name}</h4>
+          <p>{cat.description}</p>
+          <p>{cat.age}</p>
+          <p>{cat.gender}</p>
+          <p>{cat.tags.join(', ')}</p>
+        </article>
+      ))
+    }
+  </div>
+  <div>
+    <h3>Proceso de adopción responsable</h3>
+    <div>
+      <h4>Solicitud</h4>
+      <p>
+        Te enamoras de uno de nuestros adorables gatos y rellenas el formulario
+        con tus datos para conocerte mejor.
+      </p>
+    </div>
+    <div>
+      <h4>Revisión</h4>
+      <p>Revisaremos tu solicitud y te contactaremos con más información.</p>
+    </div>
+    <div>
+      <h4>Recogida</h4>
+      <p>
+        Si todo va bien, muy pronto podrás venir a recoger a tu nuevo amor
+        felino y llevártelo a casa. Quiérelo, cuídalo y tendrás un amor sincero
+        de por vida
+      </p>
+    </div>
+  </div>
+</section>
