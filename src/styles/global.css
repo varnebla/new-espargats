@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: 45 20% 98%;
+  --color-foreground: 283 32% 25%;
+
+  --color-primary: 283 45% 30%;
+  --color-primary-foreground: 45 20% 98%;
+  --color-primary-soft: 283 25% 85%;
+
+  --color-secondary: 30 50% 92%;
+  --color-secondary-foreground: 283 32% 25%;
+
+  --color-accent: 283 25% 90%;
+  --color-accent-foreground: 283 45% 30%;
+}
