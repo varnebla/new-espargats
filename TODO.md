@@ -1,0 +1,21 @@
+- [ ] Lista de gatos -> link a whatsapp preguntando por gato? Formulario?
+- [ ] Proceso adopción
+- [ ] Blog -> Empezar estático, migrar a CMS
+- [ ] Galería de gatos adoptados
+- [ ] Galería de gatos del refugi
+- [ ] Actividades que se organizan: Sant Jordi, Santa Llúcia, Calendario
+- [ ] Voluntarios: especificar tipos? Eventos, refugi, calendario, recogidas de alimento...
+- [ ] Páginas específicas de voluntariado?
+- [ ] Páginas específicas de donaciones?
+- [ ] Banner subvenciones y ajuntament
+- [ ] Páginas legales
+- [ ] Número de teamers
+- [ ] FAQs
+- [ ] Guías útiles (qué hacer cuando encontramos un gato...)
+- [ ] Breadcrumbs
+- [ ] SEO: Títulos y descripciones
+- [ ] SEO: og cards
+- [ ] SEO: Sitemaps
+- [ ] SEO: Google search console
+- [ ] Analytics
+- [ ] Páginas legales
