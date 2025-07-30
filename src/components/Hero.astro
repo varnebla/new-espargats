@@ -2,12 +2,39 @@
 
 ---
 
-<section>
-  <h1>Adoptar salva vidas</h1>
-  <p>
-    Somos una organización dedicada al rescate, cuidado y adopción de gatos
-    callejeros. Cada vida importa, cada historia merece un final feliz.
-  </p>
-  <a href="/adopta">Adoptar un gato</a>
-  <a href="/colabora">Hacer una donación</a>
+<section
+  class="relative flex flex-col items-center justify-center text-center bg-gradient-to-b from-base-100 to-base-200 min-h-[60vh] pt-24 pb-12 px-4 overflow-hidden"
+>
+  {
+    /* Imagen de fondo para desktop, oculta en mobile. Añadir src y alt cuando se tenga la imagen. */
+  }
+  <img
+    src=""
+    alt=""
+    class="hidden md:block absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-20 z-0"
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+    aria-hidden="true"
+    draggable="false"
+  />
+  <div class="relative z-10 w-full flex flex-col items-center">
+    <h1
+      class="text-4xl md:text-6xl font-extrabold mb-4 text-primary tracking-tight"
+    >
+      Adoptar salva vidas
+    </h1>
+    <p class="max-w-xl text-lg md:text-2xl text-base-content/80 mb-8">
+      Somos una organización dedicada al rescate, cuidado y adopción de gatos
+      callejeros. Cada vida importa, cada historia merece un final feliz.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/adopta" class="btn btn-primary btn-lg shadow-lg"
+        >Adoptar un gatito</a
+      >
+      <a href="/colabora" class="btn btn-secondary btn-lg shadow"
+        >Hacer una donación</a
+      >
+    </div>
+  </div>
 </section>
