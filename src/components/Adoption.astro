@@ -1,4 +1,5 @@
 ---
+import { Heart, MapPin } from '@lucide/astro';
 const cats = [
   {
     name: 'Dulce',
@@ -27,46 +28,111 @@ const cats = [
 ];
 ---
 
-<section>
-  <h2>Encuentra tu Compañero Perfecto</h2>
-  <p>
-    Estos hermosos gatos están esperando una familia que les brinde amor y
-    cuidado. ¿Podrías ser tú quien les dé una segunda oportunidad?
-  </p>
-  <div>
-    {
-      cats.map((cat) => (
-        <article>
-          <img src={cat.image} alt={cat.name} width={150} height={150} />
-          <h4>{cat.name}</h4>
-          <p>{cat.description}</p>
-          <p>{cat.age}</p>
-          <p>{cat.gender}</p>
-          <p>{cat.tags.join(', ')}</p>
-        </article>
-      ))
-    }
+<section class="py-16 bg-primary-content/30">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
+      Encuentra tu Compañero Perfecto
+    </h2>
+    <p class="text-center text-base-content/80 max-w-2xl mx-auto mb-10 text-lg">
+      Estos hermosos gatos están esperando una familia que les brinde amor y
+      cuidado. ¿Podrías ser tú quien les dé una segunda oportunidad?
+    </p>
+    <div
+      class="flex gap-4 overflow-x-auto overflow-y-visible snap-x snap-mandatory scrollbar-hide mb-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:snap-none px-2 py-8 mx-auto"
+    >
+      {
+        cats.map((cat, idx) => (
+          <article class="card bg-white shadow-lg border border-base-200 flex flex-col min-w-[75vw] sm:min-w-[340px] max-w-xs mx-2 snap-center lg:min-w-0 lg:w-full lg:max-w-none lg:mx-0 p-0">
+            <div class="relative w-full">
+              <img
+                src={cat.image}
+                alt={cat.name}
+                width={400}
+                height={300}
+                class="w-full h-56 object-cover rounded-t-2xl"
+                loading="lazy"
+              />
+              <span class="absolute top-4 right-4 bg-primary text-white text-sm font-semibold px-4 py-1 rounded-full shadow-lg z-10">
+                {cat.age}
+              </span>
+            </div>
+            <div class="card-body items-start text-left w-full">
+              <div class="flex justify-between items-center w-full mb-2">
+                <h4 class="card-title text-2xl font-bold text-primary mb-0">
+                  {cat.name}
+                </h4>
+                <span class="badge bg-base-200 text-base-content/80 font-medium px-3 py-1 rounded-lg text-sm">
+                  {cat.gender}
+                </span>
+              </div>
+              <p class="text-base-content/80 mb-3 text-lg">{cat.description}</p>
+              {/* <div class="flex items-center gap-2 mb-3 text-base-content/60 text-sm">
+                <MapPin />
+                <span>Centro de Adopción</span>
+              </div> */}
+              <div class="flex flex-wrap gap-2 mb-4">
+                {cat.tags.map((tag) => (
+                  <span class="badge badge-soft badge-primary">{tag}</span>
+                ))}
+              </div>
+              <a
+                href="/adopta"
+                class="btn btn-accent btn-md w-full flex items-center justify-center gap-2 mt-2"
+              >
+                <Heart size="20" />
+                <span>Adoptar a {cat.name}</span>
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+    <div class="flex justify-center mb-12">
+      <a href="/adopta" class="btn btn-primary btn-md"
+        >Conoce a todos nuestros gatos</a
+      >
+    </div>
   </div>
-  <div>
-    <h3>Proceso de adopción responsable</h3>
-    <div>
-      <h4>Solicitud</h4>
-      <p>
-        Te enamoras de uno de nuestros adorables gatos y rellenas el formulario
-        con tus datos para conocerte mejor.
-      </p>
-    </div>
-    <div>
-      <h4>Revisión</h4>
-      <p>Revisaremos tu solicitud y te contactaremos con más información.</p>
-    </div>
-    <div>
-      <h4>Recogida</h4>
-      <p>
-        Si todo va bien, muy pronto podrás venir a recoger a tu nuevo amor
-        felino y llevártelo a casa. Quiérelo, cuídalo y tendrás un amor sincero
-        de por vida
-      </p>
+</section>
+<section class="py-16">
+  <div class="max-w-5xl mx-auto">
+    <h3 class="text-2xl font-bold text-center mb-8 text-primary">
+      Proceso de adopción responsable
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-base-100 flex flex-col items-center text-center px-6 py-8">
+        <span
+          class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-primary/10 text-primary text-xl font-bold"
+          >1</span
+        >
+        <h4 class="font-semibold mb-3 text-lg">Solicitud</h4>
+        <p class="text-base-content/80 text-base">
+          Te enamoras de uno de nuestros adorables gatos y rellenas el
+          formulario con tus datos para conocerte mejor.
+        </p>
+      </div>
+      <div class="bg-base-100 flex flex-col items-center text-center px-6 py-8">
+        <span
+          class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-primary/10 text-primary text-xl font-bold"
+          >2</span
+        >
+        <h4 class="font-semibold mb-3 text-lg">Revisión</h4>
+        <p class="text-base-content/80 text-base">
+          Revisaremos tu solicitud y te contactaremos con más información.
+        </p>
+      </div>
+      <div class="bg-base-100 flex flex-col items-center text-center px-6 py-8">
+        <span
+          class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-primary/10 text-primary text-xl font-bold"
+          >3</span
+        >
+        <h4 class="font-semibold mb-3 text-lg">Recogida</h4>
+        <p class="text-base-content/80 text-base">
+          Si todo va bien, muy pronto podrás venir a recoger a tu nuevo amor
+          felino y llevártelo a casa. Quiérelo, cuídalo y tendrás un amor
+          sincero de por vida.
+        </p>
+      </div>
     </div>
   </div>
 </section>
