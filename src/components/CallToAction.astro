@@ -1,12 +1,37 @@
 ---
-
+const {
+  backgroundColor = 'bg-gradient-to-br from-primary to-primary/70',
+  contentColor = 'text-primary-content',
+} = Astro.props;
 ---
 
-<section>
-  <p>
-    Muchos gatos necesitan tu ayuda. Con tu apoyo, podemos seguir rescatando,
-    cuidando y encontrando hogares para ellos.
-  </p>
-  <button>Adopta un gato</button>
-  <button>Haz una donación</button>
+<section
+  class="py-20 px-4 text-center"
+  class:list={[backgroundColor, contentColor]}
+>
+  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 text-balance">
+    <slot name="text">
+      <div>
+        <h2
+          class="text-3xl md:text-4xl lg:text-center font-bold tracking-tight mb-4"
+        >
+          Cada vida cuenta, ¿nos echas una patita?
+        </h2>
+        <p class="text-xl font-medium mb-2">
+          Muchos gatos necesitan tu ayuda. Con tu apoyo, podemos seguir
+          rescatando, cuidando y encontrando hogares para ellos.
+        </p>
+      </div>
+    </slot>
+    <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+      <slot name="actions">
+        <a href="/adopta" class="btn btn-neutral btn-lg w-full sm:w-auto"
+          >Adopta un gato</a
+        >
+        <a href="/colabora" class="btn btn-outline btn-lg w-full sm:w-auto"
+          >Haz una donación</a
+        >
+      </slot>
+    </div>
+  </div>
 </section>

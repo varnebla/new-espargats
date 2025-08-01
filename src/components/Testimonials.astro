@@ -21,20 +21,32 @@ const testimonials = [
 ];
 ---
 
-<section>
-  <h2>Historias de Éxito</h2>
-  <p>
-    Las palabras de nuestras familias adoptivas nos motivan a seguir adelante.
-  </p>
-  <div>
-    {
-      testimonials.map((testimonial) => (
-        <article>
-          <p>{testimonial.testimonial}</p>
-          <h4>{testimonial.name}</h4>
-          <p>{testimonial.description}</p>
-        </article>
-      ))
-    }
+<section class="py-16 bg-primary-content/30">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2
+      class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-4 text-primary"
+    >
+      Historias de Éxito
+    </h2>
+    <p class="text-center text-base-content/80 max-w-2xl mx-auto mb-10 text-lg">
+      Las palabras de nuestras familias adoptivas nos motivan a seguir adelante.
+    </p>
+    <div class="carousel w-full carousel-center gap-x-6 py-4">
+      {
+        testimonials.map((testimonial, idx) => (
+          <article class="card carousel-item bg-white flex flex-col items-center text-center lg:flex-1 max-w-sm md:max-w-md w-full p-6 mx-auto">
+            <p class="text-base-content/80 text-lg mb-6">
+              “{testimonial.testimonial}”
+            </p>
+            <h4 class="card-title text-xl font-bold text-primary mb-1">
+              {testimonial.name}
+            </h4>
+            <p class="text-base-content/60 text-base mb-2">
+              {testimonial.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </section>

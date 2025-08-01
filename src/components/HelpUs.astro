@@ -1,37 +1,59 @@
 ---
+import { HeartHandshake, Home, HandCoins, Users } from '@lucide/astro';
 const helpWays = [
   {
     title: 'Adopta',
     description: 'Dale un hogar permanente a uno de nuestros gatos rescatados.',
+    icon: Home,
   },
   {
     title: 'Dona',
     description: 'Contribuye con gastos veterinarios, alimentación y cuidados.',
+    icon: HandCoins,
   },
   {
     title: 'Voluntariado',
     description: 'Únete a nuestro equipo y ayúdanos en nuestro día a día.',
+    icon: Users,
   },
   {
     title: 'Acogida',
     description:
       'Ofrece un hogar temporal mientras encuentran familia definitiva.',
+    icon: HeartHandshake,
   },
 ];
 ---
 
-<section>
-  <h2>Cómo Puedes Ayudar</h2>
-  <p>
-    Hay muchas formas de colaborar con nosotros, encuentra la que mejor se
-    ajuste a ti.
-  </p>
-  {
-    helpWays.map((helpWay) => (
-      <article>
-        <h3>{helpWay.title}</h3>
-        <p>{helpWay.description}</p>
-      </article>
-    ))
-  }
+<section class="py-16 bg-base-100">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col mb-10 md:items-center">
+      <h2
+        class="text-3xl md:text-4xl lg:text-center font-bold tracking-tight mb-4 text-primary"
+      >
+        Cómo Puedes Ayudar
+      </h2>
+      <p
+        class="text-base-content/80 text-lg md:max-w-xl lg:text-center text-balance"
+      >
+        Hay muchas formas de colaborar con nosotros, encuentra la que mejor se
+        ajuste a ti.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        helpWays.map((helpWay) => (
+          <article class="card bg-white border border-primary/20 flex flex-col items-start p-6 rounded-2xl hover:shadow-xl shadow-primary-content/50 transition-shadow">
+            <span class="mb-6 flex items-center justify-center w-14 h-14 rounded-xl bg-primary-content/80">
+              <helpWay.icon size="32" class="text-primary" />
+            </span>
+            <h3 class="card-title text-xl font-bold mb-2 text-primary">
+              {helpWay.title}
+            </h3>
+            <p class="text-base-content/80 text-base">{helpWay.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
 </section>
