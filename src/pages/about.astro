@@ -1,123 +1,306 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import {
+  Home,
+  Settings,
+  HeartHandshake,
+  Users,
+  CalendarHeart,
+  PawPrint,
+  Building,
+  Info,
+  HelpingHand,
+  Heart,
+  Ban,
+  Megaphone,
+  Handshake,
+} from '@lucide/astro';
 import FAQs from '@components/FAQs.astro';
 ---
 
 <Layout>
-  <h1>Sobre nosotros</h1>
-  <p>
+  <h1
+    class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
+  >
+    Sobre nosotros
+  </h1>
+  <p
+    class="text-lg md:text-xl text-base-content/80 text-center max-w-2xl mx-auto mb-20 px-2 md:px-0"
+  >
     Ningún comienzo es fácil. También nosotros nos hemos encontrado baches en el
     camino; sin embargo, nunca hemos pensado en darnos la vuelta y rendirnos.
     ¿Por qué? Porque cualquier esfuerzo merece la pena para garantizar el
     derecho a la vida de un ser vivo.
   </p>
-  <section>
-    <h2>Nuestra historia</h2>
-    <p>
-      Espargats arranca su proyecto en Esparreguera (Barcelona) en 2019, cuando
-      un pequeño grupo de voluntarios y voluntarias se reúne para unificar
-      fuerzas ante la necesidad de controlar las colonias callejeras felinas de
-      nuestra ciudad, y procurar la mejora de las condiciones de vida de estos
-      animales.
-    </p>
-    <p>
-      Lo que inicialmente fue un proyecto (CES: Capturar-Esterilizar-Soltar),
-      pronto pasó a ser un proyecto mucho más global, ya que fuimos encontrando
-      muchos casos de gatos enfermos, malheridos o camadas desprotegidas que no
-      podíamos dejar pasar por alto.
-    </p>
-    <p>
-      A partir de ese momento, y con todas las consecuencias, nos lanzamos a
-      cubrir muchas otras necesidades de las colonias. Pese a tener poco apoyo
-      económico, no nos faltaban ganas, empatía y sentimiento hacia los gatos
-      callejeros de nuestra población, ¡y esa es nuestra motivación diaria!
-    </p>
+  <section
+    class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-20 max-w-5xl mx-auto px-4 md:px-6"
+  >
+    <div
+      class="order-2 lg:order-1 flex flex-col justify-center max-w-xl mx-auto"
+    >
+      <h2
+        class="text-2xl font-bold mb-4 text-primary md:text-center lg:text-left"
+      >
+        Nuestra historia
+      </h2>
+      <div class="space-y-4 text-base-content/80">
+        <p>
+          Espargats arranca su proyecto en Esparreguera (Barcelona) en 2019,
+          cuando un pequeño grupo de voluntarios y voluntarias se reúne para
+          unificar fuerzas ante la necesidad de controlar las colonias
+          callejeras felinas de nuestra ciudad, y procurar la mejora de las
+          condiciones de vida de estos animales.
+        </p>
+        <p>
+          Lo que inicialmente fue un proyecto (CES:
+          Capturar-Esterilizar-Soltar), pronto pasó a ser un proyecto mucho más
+          global, ya que fuimos encontrando muchos casos de gatos enfermos,
+          malheridos o camadas desprotegidas que no podíamos dejar pasar por
+          alto.
+        </p>
+        <p>
+          A partir de ese momento, y con todas las consecuencias, nos lanzamos a
+          cubrir muchas otras necesidades de las colonias. Pese a tener poco
+          apoyo económico, no nos faltaban ganas, empatía y sentimiento hacia
+          los gatos callejeros de nuestra población, ¡y esa es nuestra
+          motivación diaria!
+        </p>
+      </div>
+    </div>
+    <div class="order-1 lg:order-2 flex justify-center items-center h-full">
+      <img
+        src="/images/about-01.webp"
+        alt="Voluntarios Espargats"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover"
+      />
+    </div>
   </section>
-  <section>
-    <h2>El proyecto</h2>
-    <p>
-      Ahora, nuestro proyecto ha crecido y también nuestro equipo humano, y
-      podemos abarcar todo tipo de casos relacionados con el mundo felino.
-    </p>
-    <ul>
-      <li>
-        Cuidado y mantenimiento de las colonias de gatos de nuestra localidad
-        (Esparreguera)
-      </li>
-      <li>Gestión mediante el CES</li>
-      <li>Mantenimiento y cuidado de los gatos de El Refugi</li>
-      <li>
-        Contamos con casas de acogida que cuidan de los gatos que pueden
-        encontrar un hogar
-      </li>
-      <li>Participación en eventos solidarios</li>
-      <li>Proceso de adopción responsable</li>
-    </ul>
+  <section
+    id="project"
+    class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-20 max-w-5xl mx-auto px-4 md:px-6"
+  >
+    <div
+      class="flex justify-center items-center h-full max-w-lg w-full mx-auto"
+    >
+      <img
+        src="/images/about-02.webp"
+        alt="Proyecto Espargats"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover"
+      />
+    </div>
+    <div class="flex flex-col justify-center max-w-xl mx-auto">
+      <h2
+        class="text-2xl font-bold mb-4 text-primary md:text-center lg:text-left"
+      >
+        El proyecto
+      </h2>
+      <p class="mb-6 text-base-content/80 md:text-center lg:text-left">
+        Ahora, nuestro proyecto ha crecido y también nuestro equipo humano, y
+        podemos abarcar todo tipo de casos relacionados con el mundo felino.
+      </p>
+      <ul class="space-y-4">
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Home />
+          </span>
+          <span class="flex-1"
+            >Cuidado y mantenimiento de las colonias de gatos de nuestra
+            localidad (Esparreguera)</span
+          >
+        </li>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Settings />
+          </span>
+          <span class="flex-1">Gestión mediante el CES</span>
+        </li>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <HeartHandshake />
+          </span>
+          <span class="flex-1"
+            >Mantenimiento y cuidado de los gatos de El Refugi</span
+          >
+        </li>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Users />
+          </span>
+          <span class="flex-1"
+            >Contamos con casas de acogida que cuidan de los gatos que pueden
+            encontrar un hogar</span
+          >
+        </li>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <CalendarHeart />
+          </span>
+          <span class="flex-1">Participación en eventos solidarios</span>
+        </li>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <PawPrint />
+          </span>
+          <span class="flex-1">Proceso de adopción responsable</span>
+        </li>
+      </ul>
+    </div>
   </section>
-  <section>
-    <h2>Nuestra misión</h2>
-    <p>
-      Defender, proteger y ayudar a los gatos abandonados o maltratados, con el
-      propósito de ofrecerles una vida digna y un hogar donde puedan ser
-      felices.
-    </p>
-    <div>
-      <h3>Nuestro objetivo:</h3>
-      <ul>
-        <li>
-          <p>
+  <section
+    id="mission"
+    class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-20 max-w-5xl mx-auto px-4 md:px-4"
+  >
+    <div
+      class="order-2 lg:order-2 flex flex-col justify-center max-w-xl mx-auto"
+    >
+      <h2
+        class="text-2xl font-bold mb-4 text-primary md:text-center lg:text-left"
+      >
+        Nuestra misión
+      </h2>
+      <p class="mb-6 text-base-content/80 md:text-center lg:text-left">
+        Defender, proteger y ayudar a los gatos abandonados o maltratados, con
+        el propósito de ofrecerles una vida digna y un hogar donde puedan ser
+        felices.
+      </p>
+      <h3 class="font-semibold mb-4">Nuestro objetivo:</h3>
+      <ul class="space-y-4 max-w-xl mx-auto">
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Building />
+          </span>
+          <span class="flex-1">
             Conseguir que los centros municipales de recogida de animales <strong
               >se conviertan en refugios reales o protectoras</strong
             >.
-          </p>
+          </span>
         </li>
-        <li>
-          <p>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Info />
+          </span>
+          <span class="flex-1">
             Facilitar el acceso a la información para <strong
               >concienciar a la sociedad sobre la protección animal</strong
             >. Una población informada dejará de fomentar, directa o
             indirectamente, la crueldad, la superpoblación y la exterminio de
             los animales.
-          </p>
+          </span>
         </li>
-        <li>
-          <p>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <HelpingHand />
+          </span>
+          <span class="flex-1">
             Ayudar a los compañeros humanos de los gatos, y a aquellos que
             quieran serlo: es importante <strong
               >entender lo que es compartir tu vida con un animal</strong
             >, la responsabilidad que conlleva y, sobre todo, los grandes
             beneficios que comporta.
-          </p>
+          </span>
         </li>
-        <li>
-          <p>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Heart />
+          </span>
+          <span class="flex-1">
             Inculcar la adopción como acto de responsabilidad y de amor hacia
             los animales, así como de una forma de vida justa y más
             gratificante. <strong>Adopta, no compres</strong>.
-          </p>
+          </span>
         </li>
-        <li>
-          <p>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Ban />
+          </span>
+          <span class="flex-1">
             Denunciar los actos de crueldad y maltrato hacia los animales. Y
             luchar contra el abandono de animales: no los abandones.
-          </p>
+          </span>
         </li>
-        <li>
-          <p>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Megaphone />
+          </span>
+          <span class="flex-1">
             Promover campañas de <strong>adopción y esterilización</strong>,
             entre otros actos que contribuyan a tener animales de forma
             responsable.
-          </p>
+          </span>
         </li>
-        <li>
-          <p>
+        <li
+          class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-4 flex flex-row items-center gap-4"
+        >
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Handshake />
+          </span>
+          <span class="flex-1">
             Colaborar con otras asociaciones y protectoras para conseguir <strong
               >mejoras en la defensa y legislación de los derechos de los
               animales</strong
             >.
-          </p>
+          </span>
         </li>
       </ul>
+    </div>
+    <div
+      class="order-1 lg:order-2 lg:sticky top-24 flex justify-center items-center max-w-lg w-full mx-auto"
+    >
+      <img
+        src="/images/about-03.webp"
+        alt="Misión Espargats"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover"
+      />
     </div>
   </section>
   <FAQs />
