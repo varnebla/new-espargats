@@ -6,9 +6,12 @@ import {
   Clipboard,
   Fish,
   House,
-  Users,
+  Cat,
   HandHeart,
   ArrowUpRight,
+  Drumstick,
+  CalendarHeart,
+  Handshake,
 } from '@lucide/astro';
 
 const products = [
@@ -37,205 +40,310 @@ const products = [
 ---
 
 <Layout>
-  <h1>Colabora con Espartgats</h1>
-  <p>
+  <h1
+    class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
+  >
+    Colabora con Espargats
+  </h1>
+  <p
+    class="text-lg md:text-xl text-base-content/80 text-center max-w-2xl mx-auto mb-12 px-2 md:px-0"
+  >
     Como todas las grandes cosas de la vida, nuestro proyecto empezó pequeño.
     Hoy contamos con muchas personas que ayudan a que podamos ofrecer una vida
     mejor a los gatos callejeros y abandonados. Hay muchas formas de colaborar
     con nosotros, encuentra la que mejor se ajuste a ti. ¡Gracias!
   </p>
-  <section>
-    <h2>Tu Ayuda Salva Vidas</h2>
-    <p></p>
-    <article>
-      <header>
-        <Coffee />
-        <h3>¡Únete a nuestro Teaming!</h3>
-      </header>
-      <div>
-        <p>
-          Teaming es una herramienta online para recaudar fondos para causas
-          sociales a través de micro donaciones de 1 € al mes. ¡Menos de lo que
-          vale un café!
-        </p>
-        <ul>
-          <li>Tu donación se realizará de manera automática</li>
-          <li>Sin comisiones</li>
-          <li>Hasta que tú lo decidas</li>
-        </ul>
-      </div>
-      <footer>
-        <a
-          href="https://www.teaming.net/espargats"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <HandHeart />
-          <span>Únete al TEAM por 1€ al mes</span>
-        </a>
-      </footer>
-    </article>
-    <article>
-      <header>
-        <Coins />
-        <h3>Donaciones puntuales</h3>
-      </header>
-      <div>
-        <p>
-          Puedes ayudarnos haciendo donaciones económicas puntuales. Esperamos
-          disponer pronto del código Bizum ONG, pero por el momento puedes hacer
-          tu donación en forma de transferencia bancaria.
-        </p>
-        <p>Todo el dinero que recaudamos lo destinamos íntegramente a:</p>
-        <ul>
-          <li>Facturas veterinarias</li>
-          <li>Alimentación y cuidados</li>
-          <li>Esterilización</li>
-          <li>Acondicionamiento de las colonias</li>
-        </ul>
-      </div>
-      <footer>
-        <button>
-          <Clipboard />
-          <span> ES20 0049 3865 1822 1403 7302 </span>
-        </button>
-      </footer>
-    </article>
-    <article>
-      <header>
-        <Fish />
-        <h3>Donación de comida</h3>
-      </header>
-      <div>
-        <p>
-          Necesitamos latitas para alimentar a los bebés y pienso para adoptar a
-          los gatos más adultos. Si quieres colaborar enviando comida, puedes
-          hacerlo a través de <a
-            href="http://"
+  <section class="mb-20 max-w-5xl mx-auto px-2 md:px-6">
+    <h2 class="text-2xl font-bold mb-8 text-primary text-center">
+      Tu Ayuda Salva Vidas
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
+      >
+        <header class="flex items-center gap-4 mb-2">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+            ><Coffee /></span
+          >
+          <h3 class="text-lg font-semibold">¡Únete a nuestro Teaming!</h3>
+        </header>
+        <div class="text-base-content/80">
+          <p class="mb-2">
+            Teaming es una herramienta online para recaudar fondos para causas
+            sociales a través de micro donaciones de 1 € al mes. ¡Menos de lo
+            que vale un café!
+          </p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>Tu donación se realizará de manera automática</li>
+            <li>Sin comisiones</li>
+            <li>Hasta que tú lo decidas</li>
+          </ul>
+        </div>
+        <footer class="mt-4">
+          <a
+            href="https://www.teaming.net/espargats"
             target="_blank"
-            rel="noopener noreferrer">Amazon</a
-          > o de tu tienda de confianza y enviarlo a la siguiente dirección:
-        </p>
-        <p>
-          <strong>BCN Retroclass</strong><br />
-          C/ de Baix, 44, 08292 Esparreguera
-        </p>
-        <p>
-          Si tienes dudas o quieres preguntarnos antes por las necesidades
-          concretas, puedes:
-        </p>
-        <ul>
-          <li>
-            Escribirnos a <a href="mailto:espargats@gmail.com"
-              >espargats@gmail.com</a
-            >
-          </li>
-          <li>
-            Enviarnos un Whatsapp al <a
-              href="https://wa.me/625017077"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-block flex items-center gap-2"
+          >
+            <HandHeart />
+            <span>Únete al TEAM por 1€ al mes</span>
+          </a>
+        </footer>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
+      >
+        <header class="flex items-center gap-4 mb-2">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+            ><Coins /></span
+          >
+          <h3 class="text-lg font-semibold">Donaciones puntuales</h3>
+        </header>
+        <div class="text-base-content/80">
+          <p class="mb-2">
+            Puedes ayudarnos haciendo donaciones económicas puntuales. Esperamos
+            disponer pronto del código Bizum ONG, pero por el momento puedes
+            hacer tu donación en forma de transferencia bancaria.
+          </p>
+          <p>Todo el dinero que recaudamos lo destinamos íntegramente a:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>Facturas veterinarias</li>
+            <li>Alimentación y cuidados</li>
+            <li>Esterilización</li>
+            <li>Acondicionamiento de las colonias</li>
+          </ul>
+        </div>
+        <footer class="mt-4">
+          <button
+            class="btn btn-outline btn-block flex items-center gap-2 select-all"
+          >
+            <Clipboard />
+            <span>ES20 0049 3865 1822 1403 7302</span>
+          </button>
+        </footer>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
+      >
+        <header class="flex items-center gap-4 mb-2">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+            ><Fish /></span
+          >
+          <h3 class="text-lg font-semibold">Donación de comida</h3>
+        </header>
+        <div class="text-base-content/80">
+          <p class="mb-2">
+            Necesitamos latitas para alimentar a los bebés y pienso para adoptar
+            a los gatos más adultos. Si quieres colaborar enviando comida,
+            puedes hacerlo a través de <a
+              href="http://"
               target="_blank"
-              rel="noopener noreferrer">625017077</a
-            >
-          </li>
-          <li>
-            Escribirnos un <a
-              href="http://instagram.com/espargats"
-              target="_blank"
-              rel="noopener noreferrer">mensaje privado en Instagram</a
-            >
-          </li>
-        </ul>
-      </div>
-      <footer>
-        <a
-          href="https://wa.me/625017077"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <HandHeart />
-          <span>Contacta con nosotras</span>
-        </a>
-      </footer>
-    </article>
-    <article>
-      <header>
-        <House />
-        <h3>Casa de acogida</h3>
-      </header>
-      <div>
-        <p>
-          Ser casa de acogida es muy gratificante, ya que es una forma de
-          contribuir y ayudar a cambiar la vida de los gatos que han sido
-          abandonados o que viven en la calle.
-        </p>
-        <p>
-          Siendo casa de acogida, podrás ayudar a gatitos que llevan muy poco en
-          este mundo y están deseando encontrar un hogar. Y también a gatos
-          adultos, que no pierden la esperanza de encontrar una familia
-          definitiva con la que crecer.
-        </p>
-      </div>
-      <footer>
-        <a
-          href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesado%20en%20ser%20casa%20de%20acogida"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <HandHeart />
-          <span>Quiero ser casa de acogida</span>
-        </a>
-      </footer>
-    </article>
-    <article>
-      <header>
-        <Users />
-        <h3>Voluntariado</h3>
-      </header>
-      <div>
-        <p>
-          Únete a nuestro equipo de voluntarias para ayudar en rescates, eventos
-          de adopción y cuidado de El Refugi.
-        </p>
-      </div>
-      <footer>
-        <a
-          href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesada%20en%20ser%20voluntaria"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <HandHeart />
-          <span>Quiero ser voluntaria</span>
-        </a>
-      </footer>
-    </article>
+              rel="noopener noreferrer"
+              class="link link-primary">Amazon</a
+            > o de tu tienda de confianza y enviarlo a la siguiente dirección:
+          </p>
+          <p>
+            <strong>BCN Retroclass</strong><br />C/ de Baix, 44, 08292
+            Esparreguera
+          </p>
+          <p>
+            Si tienes dudas o quieres preguntarnos antes por las necesidades
+            concretas, puedes:
+          </p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>
+              Escribirnos a <a
+                href="mailto:espargats@gmail.com"
+                class="link link-primary">espargats@gmail.com</a
+              >
+            </li>
+            <li>
+              Enviarnos un Whatsapp al <a
+                href="https://wa.me/625017077"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link link-primary">625017077</a
+              >
+            </li>
+            <li>
+              Escribirnos un <a
+                href="http://instagram.com/espargats"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link link-primary">mensaje privado en Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+        <footer class="mt-4">
+          <a
+            href="https://wa.me/625017077"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-block flex items-center gap-2"
+          >
+            <HandHeart />
+            <span>Contacta con nosotras</span>
+          </a>
+        </footer>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
+      >
+        <header class="flex items-center gap-4 mb-2">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+            ><House /></span
+          >
+          <h3 class="text-lg font-semibold">Casa de acogida</h3>
+        </header>
+        <div class="text-base-content/80">
+          <p>
+            Ser casa de acogida es muy gratificante, ya que es una forma de
+            contribuir y ayudar a cambiar la vida de los gatos que han sido
+            abandonados o que viven en la calle.
+          </p>
+          <p>
+            Siendo casa de acogida, podrás ayudar a gatitos que llevan muy poco
+            en este mundo y están deseando encontrar un hogar. Y también a gatos
+            adultos, que no pierden la esperanza de encontrar una familia
+            definitiva con la que crecer.
+          </p>
+        </div>
+        <footer class="mt-4">
+          <a
+            href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesado%20en%20ser%20casa%20de%20acogida"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-block flex items-center gap-2"
+          >
+            <HandHeart />
+            <span>Quiero ser casa de acogida</span>
+          </a>
+        </footer>
+      </article>
+    </div>
   </section>
-  <section>
-    <h2>Compra Solidaria en Amazon</h2>
-    <p>
+
+  <section class="mb-20 px-2 md:px-6 bg-primary-content/20 py-20">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold mb-8 text-primary text-center">
+        Voluntariado en Espargats
+      </h2>
+      <div class="bg-base-100 rounded-xl shadow-lg p-8 mb-8">
+        <p class="text-base-content/80 text-center mb-4">
+          Ser voluntaria en Espargats significa formar parte de una comunidad
+          que trabaja cada día para mejorar la vida de los gatos callejeros y
+          abandonados de Esparreguera. Puedes colaborar de muchas maneras, según
+          tu disponibilidad y tus intereses. ¡Toda ayuda suma y es bienvenida!
+        </p>
+        <p class="text-base-content/60 text-center mb-8">
+          A continuación te mostramos algunas de las formas en las que puedes
+          ser voluntaria en la asociación:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article
+            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
+          >
+            <span
+              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+              ><Drumstick /></span
+            >
+            <span class="flex-1">
+              <strong>Alimentando colonias</strong><br />
+              Ayuda a alimentar y cuidar a los gatos que viven en las colonias felinas
+              de Esparreguera.
+            </span>
+          </article>
+          <article
+            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
+          >
+            <span
+              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+              ><Cat /></span
+            >
+            <span class="flex-1">
+              <strong>Cuidado de los gatos del Refugi</strong><br />
+              Colabora en la atención y bienestar de los gatos que viven en El Refugi.
+            </span>
+          </article>
+          <article
+            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
+          >
+            <span
+              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+              ><CalendarHeart /></span
+            >
+            <span class="flex-1">
+              <strong>Apoyo en eventos solidarios</strong><br />
+              Participa en paraditas y actividades de recaudación de fondos como
+              Sant Jordi o la Fira de Santa Llúcia.
+            </span>
+          </article>
+          <article
+            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
+          >
+            <span
+              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+              ><Handshake /></span
+            >
+            <span class="flex-1">
+              <strong>Asistencia en recogidas de alimentos</strong><br />
+              Ayuda en campañas de recogida de comida y productos para gatos en tiendas
+              colaboradoras.
+            </span>
+          </article>
+        </div>
+        <div class="flex justify-center mt-8">
+          <a
+            href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesada%20en%20ser%20voluntaria"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-lg flex items-center gap-2"
+          >
+            <HandHeart />
+            <span>Quiero ser voluntaria</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="mb-20 max-w-5xl mx-auto px-2 md:px-6">
+    <h2 class="text-2xl font-bold mb-8 text-primary text-center">
+      Compra Solidaria en Amazon
+    </h2>
+    <p class="text-base-content/80 text-center mb-4">
       Cuando compres productos para gatos a través de nuestros 'links amigo', un
       pequeño porcentaje de tu compra se destinará automáticamente a nuestros
       rescates. ¡No te cuesta nada extra y nos ayudas mucho!
     </p>
-    <p>
+    <p class="text-base-content/60 text-center mb-8">
       (disclaimer) Espargats no recomienda ningún pienso, arena o marca de
       comida húmeda en particular. Aquí abajo encontrarás productos que algunos
       de nuestros adoptantes utilizan para sus gatos, que pueden ser los mismos
       que uses tú. También hemos creado una selección de juguetes, rascadores y
       otros; recomendaciones de nuestras casas de acogidas o adoptantes.
     </p>
-
-    <div class="products">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         products.map((product) => (
-          <article>
-            {/* <img src={product.image} alt={product.name} /> */}
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
+          <article class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4 items-center text-center">
+            <img
+              src={product.image}
+              alt={product.name}
+              class="rounded-xl shadow w-full max-w-[180px] object-cover mb-4"
+            />
+            <h3 class="text-lg font-semibold mb-2">{product.name}</h3>
+            <p class="text-base-content/80 mb-2">{product.description}</p>
             <a
               href={product.link}
               target="_blank"
               rel="noopener noreferrer"
-              class="product"
+              class="btn bg-[#FF9900] text-black border-[#e17d00] btn-block flex items-center gap-2 mt-auto"
             >
               <span>Comprar en Amazon</span>
               <ArrowUpRight />
@@ -245,32 +353,40 @@ const products = [
       }
     </div>
   </section>
-  <section>
-    <h2>¡Síguenos en redes sociales!</h2>
-    <p>
-      Síguenos, comenta, comparte 💖. En nuestras redes compartimos casos de
-      gatos perdidos y gatos que buscan un hogar definitivo. También información
-      y curiosidades sobre los gatos y algún que otro chiste😸.
-    </p>
-    <p>
-      Apóyanos compartiendo nuestro contenido. Quizá consigas ayudar a que una
-      familia haga 'match' con su amor felino.
-    </p>
-    <a
-      href="http://www.instagram.com/espargats"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>Ir al perfil de Instagram</span>
-      <ArrowUpRight />
-    </a>
-    <a
-      href="http://www.facebook.com/espargats"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>Ir al perfil de Facebook</span>
-      <ArrowUpRight />
-    </a>
+  <section class="bg-primary-content/20 px-2 md:px-6 py-20">
+    <div class="max-w-3xl mx-auto bg-base-100 rounded-xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold mb-8 text-primary text-center">
+        ¡Síguenos en redes sociales!
+      </h2>
+      <p class="text-base-content/80 text-center mb-4">
+        Síguenos, comenta, comparte 💖. En nuestras redes compartimos casos de
+        gatos perdidos y gatos que buscan un hogar definitivo. También
+        información y curiosidades sobre los gatos y algún que otro chiste😸.
+      </p>
+      <p class="text-base-content/60 text-center mb-8">
+        Apóyanos compartiendo nuestro contenido. Quizá consigas ayudar a que una
+        familia haga 'match' con su amor felino.
+      </p>
+      <div class="flex gap-4 justify-center items-center">
+        <a
+          href="http://www.instagram.com/espargats"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-outline flex items-center gap-2"
+        >
+          <span>Ir al perfil de Instagram</span>
+          <ArrowUpRight />
+        </a>
+        <a
+          href="http://www.facebook.com/espargats"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-outline flex items-center gap-2"
+        >
+          <span>Ir al perfil de Facebook</span>
+          <ArrowUpRight />
+        </a>
+      </div>
+    </div>
   </section>
 </Layout>

@@ -14,6 +14,10 @@ import {
   Ban,
   Megaphone,
   Handshake,
+  Rainbow,
+  Hospital,
+  Phone,
+  ArrowRight,
 } from '@lucide/astro';
 import FAQs from '@components/FAQs.astro';
 ---
@@ -301,6 +305,81 @@ import FAQs from '@components/FAQs.astro';
         alt="Misión Espargats"
         class="rounded-xl shadow-lg w-full max-w-md object-cover"
       />
+    </div>
+  </section>
+  <section class="mb-20 max-w-5xl mx-auto px-4 md:px-6">
+    <h2 class="text-2xl font-bold mb-8 text-primary text-center">
+      Guías útiles
+    </h2>
+    <p class="text-base-content/80 text-center mb-8 max-w-2xl mx-auto">
+      ¿Te has encontrado un gato en la calle, herido o fallecido? ¿No sabes cómo
+      actuar? Consulta nuestras guías útiles para saber qué hacer en cada
+      situación y cómo ayudar de la mejor manera posible.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col items-center text-center"
+      >
+        <span
+          class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-12 h-12 mb-4"
+          ><Phone /></span
+        >
+        <h3 class="text-lg font-semibold mb-2">
+          ¿Qué hago si encuentro un gato en la calle?
+        </h3>
+        <span class="text-base-content/80 mb-4"
+          >Guía para actuar correctamente si ves un gato en la vía pública.</span
+        >
+        <a
+          href="/guias/que-hago-si-encuentro-gato-en-la-calle"
+          class="btn btn-primary btn-block flex items-center gap-2 mt-auto"
+        >
+          <span>Ver guía</span>
+          <ArrowRight />
+        </a>
+      </div>
+      <div
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col items-center text-center"
+      >
+        <span
+          class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-12 h-12 mb-4"
+          ><Hospital /></span
+        >
+        <h3 class="text-lg font-semibold mb-2">
+          ¿Qué hago si encuentro un gato herido?
+        </h3>
+        <span class="text-base-content/80 mb-4"
+          >Guía para ayudar a un gato que necesita atención veterinaria.</span
+        >
+        <a
+          href="/guias/que-hago-si-encuentro-gato-herido"
+          class="btn btn-primary btn-block flex items-center gap-2 mt-auto"
+        >
+          <span>Ver guía</span>
+          <ArrowRight />
+        </a>
+      </div>
+      <div
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col items-center text-center"
+      >
+        <span
+          class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-12 h-12 mb-4"
+          ><Rainbow /></span
+        >
+        <h3 class="text-lg font-semibold mb-2">
+          ¿Qué hago si encuentro un gato fallecido?
+        </h3>
+        <span class="text-base-content/80 mb-4"
+          >Guía para saber cómo proceder ante el hallazgo de un gato muerto.</span
+        >
+        <a
+          href="/guias/que-hago-si-encuentro-gato-muerto"
+          class="btn btn-primary btn-block flex items-center gap-2 mt-auto"
+        >
+          <span>Ver guía</span>
+          <ArrowRight />
+        </a>
+      </div>
     </div>
   </section>
   <FAQs />
