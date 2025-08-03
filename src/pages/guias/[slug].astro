@@ -1,0 +1,31 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+// 1. Genera una nueva ruta para cada entrada de colección
+export async function getStaticPaths() {
+  const guidesEntries = await getCollection('guias');
+  return guidesEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+// 2. Para tu plantilla, puedes obtener la entrada directamente de la prop
+const { entry } = Astro.props;
+---
+
+<Layout>
+  <section class="max-w-3xl mx-auto py-12 px-4">
+    {
+      entry ? (
+        <>
+          <div
+            class="prose prose-lg max-w-none"
+            set:html={entry.data.content}
+          />
+        </>
+      ) : (
+        <p class="text-center text-error">Guía no encontrada.</p>
+      )
+    }
+  </section>
+</Layout>
