@@ -12,6 +12,7 @@ import {
   Drumstick,
   CalendarHeart,
   Handshake,
+  Info,
 } from '@lucide/astro';
 
 const products = [
@@ -59,26 +60,28 @@ const products = [
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <article
-        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4 justify-between"
       >
-        <header class="flex items-center gap-4 mb-2">
-          <span
-            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-            ><Coffee /></span
-          >
-          <h3 class="text-lg font-semibold">¡Únete a nuestro Teaming!</h3>
-        </header>
-        <div class="text-base-content/80">
-          <p class="mb-2">
-            Teaming es una herramienta online para recaudar fondos para causas
-            sociales a través de micro donaciones de 1 € al mes. ¡Menos de lo
-            que vale un café!
-          </p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li>Tu donación se realizará de manera automática</li>
-            <li>Sin comisiones</li>
-            <li>Hasta que tú lo decidas</li>
-          </ul>
+        <div>
+          <header class="flex items-center gap-4 mb-6">
+            <span
+              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+              ><Coffee /></span
+            >
+            <h3 class="text-lg font-semibold">¡Únete a nuestro Teaming!</h3>
+          </header>
+          <div class="text-base-content/80">
+            <p class="mb-2">
+              Teaming es una herramienta online para recaudar fondos para causas
+              sociales a través de micro donaciones de 1 € al mes. ¡Menos de lo
+              que vale un café!
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Tu donación se realizará de manera automática</li>
+              <li>Sin comisiones</li>
+              <li>Hasta que tú lo decidas</li>
+            </ul>
+          </div>
         </div>
         <footer class="mt-4">
           <a
@@ -194,25 +197,27 @@ const products = [
       <article
         class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
       >
-        <header class="flex items-center gap-4 mb-2">
-          <span
-            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-            ><House /></span
-          >
-          <h3 class="text-lg font-semibold">Casa de acogida</h3>
-        </header>
-        <div class="text-base-content/80">
-          <p>
-            Ser casa de acogida es muy gratificante, ya que es una forma de
-            contribuir y ayudar a cambiar la vida de los gatos que han sido
-            abandonados o que viven en la calle.
-          </p>
-          <p>
-            Siendo casa de acogida, podrás ayudar a gatitos que llevan muy poco
-            en este mundo y están deseando encontrar un hogar. Y también a gatos
-            adultos, que no pierden la esperanza de encontrar una familia
-            definitiva con la que crecer.
-          </p>
+        <div>
+          <header class="flex items-center gap-4 mb-6">
+            <span
+              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+              ><House /></span
+            >
+            <h3 class="text-lg font-semibold">Casa de acogida</h3>
+          </header>
+          <div class="text-base-content/80">
+            <p class="mb-2">
+              Ser casa de acogida es muy gratificante, ya que es una forma de
+              contribuir y ayudar a cambiar la vida de los gatos que han sido
+              abandonados o que viven en la calle.
+            </p>
+            <p>
+              Siendo casa de acogida, podrás ayudar a gatitos que llevan muy
+              poco en este mundo y están deseando encontrar un hogar. Y también
+              a gatos adultos, que no pierden la esperanza de encontrar una
+              familia definitiva con la que crecer.
+            </p>
+          </div>
         </div>
         <footer class="mt-4">
           <a
@@ -235,13 +240,17 @@ const products = [
         Voluntariado en Espargats
       </h2>
       <div class="bg-base-100 rounded-xl shadow-lg p-8 mb-8">
-        <p class="text-base-content/80 text-center mb-4">
+        <p
+          class="text-base-content/80 text-center mb-4 max-w-3xl mx-auto text-balance"
+        >
           Ser voluntaria en Espargats significa formar parte de una comunidad
           que trabaja cada día para mejorar la vida de los gatos callejeros y
           abandonados de Esparreguera. Puedes colaborar de muchas maneras, según
           tu disponibilidad y tus intereses. ¡Toda ayuda suma y es bienvenida!
         </p>
-        <p class="text-base-content/60 text-center mb-8">
+        <p
+          class="text-base-content/80 text-center mb-8 max-w-3xl mx-auto text-balance"
+        >
           A continuación te mostramos algunas de las formas en las que puedes
           ser voluntaria en la asociación:
         </p>
@@ -316,18 +325,24 @@ const products = [
     <h2 class="text-2xl font-bold mb-8 text-primary text-center">
       Compra Solidaria en Amazon
     </h2>
-    <p class="text-base-content/80 text-center mb-4">
+    <p
+      class="text-base-content/80 text-center mb-4 max-w-3xl mx-auto text-balance"
+    >
       Cuando compres productos para gatos a través de nuestros 'links amigo', un
       pequeño porcentaje de tu compra se destinará automáticamente a nuestros
       rescates. ¡No te cuesta nada extra y nos ayudas mucho!
     </p>
-    <p class="text-base-content/60 text-center mb-8">
-      (disclaimer) Espargats no recomienda ningún pienso, arena o marca de
-      comida húmeda en particular. Aquí abajo encontrarás productos que algunos
-      de nuestros adoptantes utilizan para sus gatos, que pueden ser los mismos
-      que uses tú. También hemos creado una selección de juguetes, rascadores y
-      otros; recomendaciones de nuestras casas de acogidas o adoptantes.
-    </p>
+    <div role="alert" class="alert mb-8 max-w-3xl mx-auto">
+      <!-- class="text-base-content/80 text-center mb-8 text-balance bg-base-200/40 text-sm rounded-xl p-4" -->
+      <Info />
+      <p>
+        Espargats no recomienda ningún pienso, arena o marca de comida húmeda en
+        particular. Aquí abajo encontrarás productos que algunos de nuestros
+        adoptantes utilizan para sus gatos, que pueden ser los mismos que uses
+        tú. También hemos creado una selección de juguetes, rascadores y otros;
+        recomendaciones de nuestras casas de acogidas o adoptantes.
+      </p>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         products.map((product) => (
