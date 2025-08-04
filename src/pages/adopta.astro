@@ -1,231 +1,389 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import CallToAction from '@components/CallToAction.astro';
+import {
+  ShieldCheck,
+  Syringe,
+  Bug,
+  TestTube,
+  BookOpen,
+  UserCheck,
+} from '@lucide/astro';
+import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout>
-  <section>
-    <h1>Adoptar salva vidas</h1>
-    <p>
+  <section class="mb-20 max-w-5xl mx-auto px-4 md:px-6">
+    <h1
+      class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
+    >
+      Adoptar salva vidas
+    </h1>
+    <p
+      class="text-lg md:text-xl text-base-content/80 text-center max-w-2xl mx-auto mb-8 px-2 md:px-0"
+    >
       Adoptar no es un capricho, sino una decisión responsable y permanente.
       Cuando adoptas un gato de Espargats, no solo le estás ofreciendo una
       segunda oportunidad, también permites que otro pueda ocupar su lugar en la
       casa de acogida. Es decir: una adopción, dos vidas salvadas.
     </p>
-    <p>
+    <div class="flex justify-center mt-8">
       <a
         href="https://www.espargats.com/adopta/nuestros-gatos"
         target="_blank"
-        rel="noopener">Descubre los gatos en adopción</a
+        rel="noopener"
+        class="btn btn-primary btn-lg flex items-center gap-2"
       >
-    </p>
+        <span>Descubre los gatos en adopción</span>
+      </a>
+    </div>
   </section>
 
-  <section>
-    <h2>¿Queréis adoptar?</h2>
-    <p>
-      El primer paso es sencillo: cuéntanos qué gato te interesa. Puedes hacerlo
-      escribiéndonos por <a
-        href="https://wa.me/34625017077"
-        target="_blank"
-        rel="noopener">WhatsApp</a
-      > o rellenando nuestro <a
-        href="https://www.espargats.com/formulario-adopcion"
-        target="_blank"
-        rel="noopener">formulario de adopción</a
-      >.
-    </p>
-    <p>
-      Respondemos siempre por WhatsApp, aunque puede que tardemos algunas horas:
-      todo el equipo es voluntario. Una vez sepamos a qué gato te refieres, te
-      enviaremos fotos, vídeos y detalles sobre su carácter, salud, alimentación
-      y rutina. Durante el proceso, respondemos a todas tus preguntas y
-      aclaramos cualquier duda que tengas.
-    </p>
-    <p>
-      Si todo encaja, coordinamos una visita en nuestro veterinario colaborador
-      para formalizar la adopción y firmar el contrato.
-    </p>
-    <p>
-      <a
-        href="https://www.espargats.com/formulario-adopcion"
-        target="_blank"
-        rel="noopener">Inicia el proceso de adopción</a
-      >
-    </p>
+  <section class="mb-20 px-4 md:px-6 bg-primary-content/20 rounded-xl py-20">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto"
+    >
+      <div class="flex justify-center items-center h-full w-full">
+        <img
+          src="/images/about-01.webp"
+          alt="¿Queréis adoptar?"
+          class="rounded-xl shadow-lg w-full max-w-md object-cover aspect-square"
+        />
+      </div>
+      <div class="flex flex-col gap-4 h-full justify-between">
+        <h2
+          class="text-2xl font-bold mb-2 text-primary text-center md:text-left"
+        >
+          ¿Queréis adoptar?
+        </h2>
+        <div class="flex flex-col gap-4">
+          <p class="text-base-content/80 text-center md:text-left">
+            El primer paso es sencillo: cuéntanos qué gato te interesa. Puedes
+            hacerlo escribiéndonos por <a
+              href="https://wa.me/34625017077"
+              target="_blank"
+              rel="noopener"
+              class="link link-primary">WhatsApp</a
+            > o rellenando nuestro <a
+              href="https://www.espargats.com/formulario-adopcion"
+              target="_blank"
+              rel="noopener"
+              class="link link-primary">formulario de adopción</a
+            >.
+          </p>
+          <p class="text-base-content/80 text-center md:text-left">
+            Respondemos siempre por WhatsApp, aunque puede que tardemos algunas
+            horas: todo el equipo es voluntario. Una vez sepamos a qué gato te
+            refieres, te enviaremos fotos, vídeos y detalles sobre su carácter,
+            salud, alimentación y rutina. Durante el proceso, respondemos a
+            todas tus preguntas y aclaramos cualquier duda que tengas.
+          </p>
+          <p class="text-base-content/80 text-center md:text-left">
+            Si todo encaja, coordinamos una visita en nuestro veterinario
+            colaborador para formalizar la adopción y firmar el contrato.
+          </p>
+          <div class="flex justify-center md:justify-start mt-4">
+            <a
+              href="https://www.espargats.com/formulario-adopcion"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary btn-lg flex items-center gap-2"
+            >
+              <span>Inicia el proceso de adopción</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>¿Qué incluye la adopción?</h2>
-    <p>
+  <section class="mb-20 max-w-5xl mx-auto px-4 md:px-6">
+    <h2 class="text-2xl font-bold mb-8 text-primary text-center">
+      ¿Qué incluye la adopción?
+    </h2>
+    <p class="text-base-content/80 text-center mb-8 max-w-2xl mx-auto">
       Adoptar con Espargats no solo significa llevarte un gato a casa: también
       implica hacerlo con la tranquilidad de que todo está en regla para su
       bienestar y el tuyo. Estas son las garantías que ofrecemos con cada
       adopción:
     </p>
-
-    <article>
-      <h3>Microchip y registro</h3>
-      <p>
-        Todos nuestros gatos se entregan identificados con microchip. Por
-        defecto, realizamos el registro en ANICOM, aunque también puedes
-        solicitar registrarlo en AIAC con un coste adicional.
-      </p>
-    </article>
-
-    <article>
-      <h3>Vacunación trivalente</h3>
-      <p>
-        Incluye la vacuna contra panleucopenia, calicivirus y rinotraqueítis
-        felina. Si el gato está bajo tratamiento veterinario, la vacunación se
-        pospone hasta que el veterinario lo autorice.
-      </p>
-    </article>
-
-    <article>
-      <h3>Desparasitación completa</h3>
-      <p>
-        Aplicamos desparasitación interna y externa antes de la adopción, con
-        una segunda dosis a los 14 días. Además, te facilitamos pautas para
-        continuar con el protocolo según indicaciones veterinarias.
-      </p>
-    </article>
-
-    <article>
-      <h3>Test FIV y FELV</h3>
-      <p>
-        A los gatos mayores de 6 meses se les realiza el test antes de la
-        adopción. En los menores, se programa con la esterilización. Este punto
-        es esencial para conocer su estado inmunológico.
-      </p>
-    </article>
-
-    <article>
-      <h3>Cartilla veterinaria</h3>
-      <p>
-        Incluye todas las anotaciones de vacunación, desparasitación, estado de
-        salud y pruebas realizadas. Te la entregamos al día, firmada y sellada
-        por el veterinario.
-      </p>
-    </article>
-
-    <article>
-      <h3>Seguimiento personalizado</h3>
-      <p>
-        Después de la adopción, seguimos en contacto para ayudarte con dudas,
-        consejos o acompañamiento durante el proceso de adaptación. Queremos
-        asegurarnos de que el gato y la familia estén bien.
-      </p>
-    </article>
-
-    <p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4"
+      >
+        <header class="flex items-center gap-4 mb-6">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <ShieldCheck class="w-6 h-6" />
+          </span>
+          <h3 class="text-lg font-semibold">Microchip y registro</h3>
+        </header>
+        <p class="text-base-content/80">
+          Todos nuestros gatos se entregan identificados con microchip. Por
+          defecto, realizamos el registro en ANICOM, aunque también puedes
+          solicitar registrarlo en AIAC con un coste adicional.
+        </p>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4"
+      >
+        <header class="flex items-center gap-4 mb-6">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Syringe class="w-6 h-6" />
+          </span>
+          <h3 class="text-lg font-semibold">Vacunación trivalente</h3>
+        </header>
+        <p class="text-base-content/80">
+          Incluye la vacuna contra panleucopenia, calicivirus y rinotraqueítis
+          felina. Si el gato está bajo tratamiento veterinario, la vacunación se
+          pospone hasta que el veterinario lo autorice.
+        </p>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4"
+      >
+        <header class="flex items-center gap-4 mb-6">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <Bug class="w-6 h-6" />
+          </span>
+          <h3 class="text-lg font-semibold">Desparasitación completa</h3>
+        </header>
+        <p class="text-base-content/80">
+          Aplicamos desparasitación interna y externa antes de la adopción, con
+          una segunda dosis a los 14 días. Además, te facilitamos pautas para
+          continuar con el protocolo según indicaciones veterinarias.
+        </p>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4"
+      >
+        <header class="flex items-center gap-4 mb-6">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <TestTube class="w-6 h-6" />
+          </span>
+          <h3 class="text-lg font-semibold">Test FIV y FELV</h3>
+        </header>
+        <p class="text-base-content/80">
+          A los gatos mayores de 6 meses se les realiza el test antes de la
+          adopción. En los menores, se programa con la esterilización. Este
+          punto es esencial para conocer su estado inmunológico.
+        </p>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4"
+      >
+        <header class="flex items-center gap-4 mb-6">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <BookOpen class="w-6 h-6" />
+          </span>
+          <h3 class="text-lg font-semibold">Cartilla veterinaria</h3>
+        </header>
+        <p class="text-base-content/80">
+          Incluye todas las anotaciones de vacunación, desparasitación, estado
+          de salud y pruebas realizadas. Te la entregamos al día, firmada y
+          sellada por el veterinario.
+        </p>
+      </article>
+      <article
+        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4"
+      >
+        <header class="flex items-center gap-4 mb-6">
+          <span
+            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
+          >
+            <UserCheck class="w-6 h-6" />
+          </span>
+          <h3 class="text-lg font-semibold">Seguimiento personalizado</h3>
+        </header>
+        <p class="text-base-content/80">
+          Después de la adopción, seguimos en contacto para ayudarte con dudas,
+          consejos o acompañamiento durante el proceso de adaptación. Queremos
+          asegurarnos de que el gato y la familia estén bien.
+        </p>
+      </article>
+    </div>
+    <div class="flex justify-center mt-8">
       <a
         href="https://www.espargats.com/formulario-adopcion"
         target="_blank"
-        rel="noopener">Rellena el formulario y da el primer paso</a
+        rel="noopener"
+        class="btn btn-primary btn-lg flex items-center gap-2"
       >
-    </p>
+        <span>Rellena el formulario y da el primer paso</span>
+      </a>
+    </div>
   </section>
 
-  <section>
-    <h2>Tu compromiso como adoptante</h2>
-    <p>
-      Adoptar significa hacerse responsable de un ser vivo para siempre. Es
-      realmente importante que tengas claro que quieres adoptar e incorporar un
-      nuevo miembro a la familia.
-    </p>
-    <p>
-      Si adoptas un gato menor de seis meses, deberás comprometerte a
-      esterilizarlo a los seis meses en nuestro veterinario colaborador y
-      enviarnos el comprobante.
-    </p>
-    <p>
-      <a
-        href="https://www.espargats.com/formulario-adopcion"
-        target="_blank"
-        rel="noopener">Acepto el compromiso, quiero adoptar</a
+  <section
+    class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-20 max-w-5xl mx-auto px-4 md:px-6"
+  >
+    <div
+      class="order-2 lg:order-1 flex flex-col justify-center max-w-xl mx-auto"
+    >
+      <h2
+        class="text-2xl font-bold mb-4 text-primary md:text-center lg:text-left"
       >
-    </p>
-  </section>
-
-  <section>
-    <h2>Adaptación a su nuevo hogar</h2>
-    <p>
-      Una buena adaptación es clave para su bienestar. Si lo necesitas, te
-      enviaremos un pequeño dosier con consejos prácticos, especialmente útil si
-      ya tienes otros animales en casa.
-    </p>
-    <p>
-      En casos más complejos, como miedos, conflictos o comportamientos
-      desajustados, podemos recomendarte un profesional especializado en
-      comportamiento felino que te acompañe en el proceso.
-    </p>
-    <p>
-      <a href="https://wa.me/34625017077" target="_blank" rel="noopener"
-        >Quiero recibir el dosier de adaptación</a
-      >
-    </p>
-  </section>
-
-  <section>
-    <h2>¿Por qué adoptar con Espargats?</h2>
-    <p>
-      Porque cada uno de nuestros gatos ha sido rescatado de la calle y merece
-      una segunda oportunidad. Porque trabajamos desde el cariño y la
-      responsabilidad. Porque cuando dos gatos tienen un vínculo afectivo
-      fuerte, priorizamos su adopción conjunta para no separarlos. Y porque cada
-      donación se destina al 100 % al bienestar de nuestros felinos: atención
-      veterinaria, esterilización, alimentación y casas de acogida.
-    </p>
-    <p>
-      <a
-        href="https://www.espargats.com/quienes-somos"
-        target="_blank"
-        rel="noopener">Conoce más sobre Espargats</a
-      >
-    </p>
-  </section>
-
-  <section>
-    <h2>¿No encuentras a tu gato ideal?</h2>
-    <p>
-      Puede que aún no lo hayamos publicado en la web. Escríbenos y cuéntanos
-      qué buscas: te enviaremos fotos y vídeos de los casos que todavía no están
-      disponibles online. Nuestras casas de acogida conocen muy bien a los gatos
-      y te ayudarán a encontrar el compañero que mejor encaje contigo.
-    </p>
-    <p>
-      <a href="https://wa.me/34625017077" target="_blank" rel="noopener"
-        >Escríbenos por WhatsApp</a
-      > o <a href="mailto:espargats@gmail.com">mándanos un email</a>
-    </p>
-  </section>
-
-  <section>
-    <h2>¿Lista para dar el paso?</h2>
-    <p>
-      Hay muchos gatos esperando un hogar. Si has llegado hasta aquí, quizá uno
-      de ellos esté esperándote. Puedes empezar ahora mismo:
-    </p>
-    <ul>
-      <li>
-        <a
-          href="https://www.espargats.com/adopta/nuestros-gatos"
-          target="_blank"
-          rel="noopener">Ver gatos en adopción</a
-        >
-      </li>
-      <li>
+        Tu compromiso como adoptante
+      </h2>
+      <p class="text-base-content/80 mb-4 md:text-center lg:text-left">
+        Adoptar significa hacerse responsable de un ser vivo para siempre. Es
+        realmente importante que tengas claro que quieres adoptar e incorporar
+        un nuevo miembro a la familia.
+      </p>
+      <p class="text-base-content/80 mb-4 md:text-center lg:text-left">
+        Si adoptas un gato menor de seis meses, deberás comprometerte a
+        esterilizarlo a los seis meses en nuestro veterinario colaborador y
+        enviarnos el comprobante.
+      </p>
+      <div class="flex justify-center mt-4">
         <a
           href="https://www.espargats.com/formulario-adopcion"
           target="_blank"
-          rel="noopener">Rellenar formulario de adopción</a
+          rel="noopener"
+          class="btn btn-primary btn-lg flex items-center gap-2"
         >
-      </li>
-      <li>
-        <a href="https://wa.me/34625017077" target="_blank" rel="noopener"
-          >Contactar por WhatsApp</a
-        >
-      </li>
-    </ul>
+          <span>Acepto el compromiso, quiero adoptar</span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="order-1 lg:order-2 flex justify-center items-center h-full max-w-lg w-full mx-auto"
+    >
+      <img
+        src="/images/about-01.webp"
+        alt="Compromiso adoptante"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover aspect-square"
+      />
+    </div>
   </section>
+
+  <section
+    class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-20 max-w-5xl mx-auto px-4 md:px-6"
+  >
+    <div
+      class="order-1 lg:order-1 flex justify-center items-center h-full max-w-lg w-full mx-auto"
+    >
+      <img
+        src="/images/about-02.webp"
+        alt="Adaptación gato hogar"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover aspect-square"
+      />
+    </div>
+    <div
+      class="order-2 lg:order-2 flex flex-col justify-center max-w-xl mx-auto"
+    >
+      <h2
+        class="text-2xl font-bold mb-4 text-primary md:text-center lg:text-left"
+      >
+        Adaptación a su nuevo hogar
+      </h2>
+      <p class="text-base-content/80 mb-4 md:text-center lg:text-left">
+        Una buena adaptación es clave para su bienestar. Si lo necesitas, te
+        enviaremos un pequeño dosier con consejos prácticos, especialmente útil
+        si ya tienes otros animales en casa.
+      </p>
+      <p class="text-base-content/80 mb-4 md:text-center lg:text-left">
+        En casos más complejos, como miedos, conflictos o comportamientos
+        desajustados, podemos recomendarte un profesional especializado en
+        comportamiento felino que te acompañe en el proceso.
+      </p>
+      <div class="flex justify-center mt-4">
+        <a
+          href="https://wa.me/34625017077"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary btn-lg flex items-center gap-2"
+        >
+          <span>Quiero recibir el dosier de adaptación</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-20 max-w-5xl mx-auto px-4 md:px-6"
+  >
+    <div
+      class="order-1 lg:order-2 flex justify-center items-center h-full max-w-lg w-full mx-auto"
+    >
+      <img
+        src="/images/about-03.webp"
+        alt="Por qué adoptar con Espargats"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover aspect-square"
+      />
+    </div>
+    <div
+      class="order-2 lg:order-1 flex flex-col justify-center max-w-xl mx-auto"
+    >
+      <h2
+        class="text-2xl font-bold mb-4 text-primary md:text-center lg:text-left"
+      >
+        ¿Por qué adoptar con Espargats?
+      </h2>
+      <p class="text-base-content/80 mb-4 md:text-center lg:text-left">
+        Porque cada uno de nuestros gatos ha sido rescatado de la calle y merece
+        una segunda oportunidad. Porque trabajamos desde el cariño y la
+        responsabilidad. Porque cuando dos gatos tienen un vínculo afectivo
+        fuerte, priorizamos su adopción conjunta para no separarlos. Y porque
+        cada donación se destina al 100 % al bienestar de nuestros felinos:
+        atención veterinaria, esterilización, alimentación y casas de acogida.
+      </p>
+      <div class="flex justify-center mt-4">
+        <a
+          href="https://www.espargats.com/quienes-somos"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary btn-lg flex items-center gap-2"
+        >
+          <span>Conoce más sobre Espargats</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <CallToAction>
+    <h2 slot="heading" class="text-2xl font-bold mb-8 text-primary text-center">
+      ¿Lista para dar el paso?
+    </h2>
+    <p
+      slot="description"
+      class="text-base-content/80 text-center mb-8 max-w-2xl mx-auto"
+    >
+      Hay muchos gatos esperando un hogar. Si has llegado hasta aquí, quizá uno
+      de ellos esté esperándote. Puedes empezar ahora mismo:
+    </p>
+    <div slot="actions" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <a
+        href="https://www.espargats.com/adopta/nuestros-gatos"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary btn-lg flex items-center gap-2 justify-center"
+      >
+        <span>Ver gatos en adopción</span>
+      </a>
+      <a
+        href="https://www.espargats.com/formulario-adopcion"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary btn-lg flex items-center gap-2 justify-center"
+      >
+        <span>Rellenar formulario de adopción</span>
+      </a>
+      <a
+        href="https://wa.me/34625017077"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-outline btn-lg flex items-center gap-2 justify-center"
+      >
+        <span>Contactar por WhatsApp</span>
+      </a>
+    </div>
+  </CallToAction>
 </Layout>
