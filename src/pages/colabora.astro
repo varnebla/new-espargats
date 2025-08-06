@@ -14,6 +14,7 @@ import {
   Handshake,
   Info,
 } from '@lucide/astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 
 const products = [
   {
@@ -40,7 +41,10 @@ const products = [
 ];
 ---
 
-<Layout>
+<Layout
+  title="Colabora con Espargats"
+  description="Descubre cómo puedes ayudar a los gatos de Espargats en Barcelona. Desde donaciones hasta voluntariado, hay muchas formas de colaborar."
+>
   <h1
     class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
   >
@@ -404,4 +408,7 @@ const products = [
       </div>
     </div>
   </section>
+  <Breadcrumbs
+    links={[{ label: 'Inicio', href: '/' }, { label: 'Colabora' }]}
+  />
 </Layout>

@@ -9,9 +9,13 @@ import {
   UserCheck,
 } from '@lucide/astro';
 import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 ---
 
-<Layout>
+<Layout
+  title="Proceso de adopción"
+  description="Adopta un gato con Espargats: conoce el proceso de adopción, requisitos, garantías veterinarias y beneficios de dar una segunda oportunidad a un felino rescatado en Barcelona."
+>
   <section class="mb-20 max-w-5xl mx-auto px-4 md:px-6">
     <h1
       class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
@@ -38,7 +42,9 @@ import Layout from '@layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="mb-20 px-4 md:px-6 bg-primary-content/20 rounded-xl py-20">
+  <section
+    class="mb-20 px-4 md:px-6 bg-gradient-to-br from-primary-content/40 to-base-100 py-20"
+  >
     <div
       class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto"
     >
@@ -386,4 +392,5 @@ import Layout from '@layouts/Layout.astro';
       </a>
     </div>
   </CallToAction>
+  <Breadcrumbs links={[{ label: 'Inicio', href: '/' }, { label: 'Adopta' }]} />
 </Layout>

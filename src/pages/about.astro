@@ -20,9 +20,13 @@ import {
   ArrowRight,
 } from '@lucide/astro';
 import FAQs from '@components/FAQs.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 ---
 
-<Layout>
+<Layout
+  title="Sobre nosotros"
+  description="Descubre la historia, misión y valores de Espargats, la asociación protectora de gatos en Esparreguera (Barcelona). Aprende cómo ayudamos a los gatos callejeros, fomentamos la adopción responsable y cómo puedes colaborar para mejorar la vida felina en tu comunidad."
+>
   <h1
     class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
   >
@@ -389,4 +393,5 @@ import FAQs from '@components/FAQs.astro';
     </div>
   </section>
   <FAQs />
+  <Breadcrumbs links={[{ label: 'Inicio', href: '/' }, { label: 'Sobre nosotros' }]} />
 </Layout>
