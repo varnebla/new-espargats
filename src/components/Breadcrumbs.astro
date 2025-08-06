@@ -1,0 +1,19 @@
+---
+const { links = [] } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumbs py-6 text-sm px-10">
+  <ul>
+    {
+      links.map((link, idx) => (
+        <li key={idx}>
+          {link.href && idx !== links.length - 1 ? (
+            <a href={link.href}>{link.label}</a>
+          ) : (
+            <span class="text-base-content/80 font-semibold">{link.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
