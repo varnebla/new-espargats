@@ -1,5 +1,5 @@
 ---
-import CallToAction from '@components/CallToAction.astro';
+import Layout from '@layouts/Layout.astro';
 import {
   ShieldCheck,
   Syringe,
@@ -8,8 +8,18 @@ import {
   BookOpen,
   UserCheck,
 } from '@lucide/astro';
-import Layout from '@layouts/Layout.astro';
+import Gallery from '@components/Gallery.astro';
+import CallToAction from '@components/CallToAction.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
+const images = [
+  { src: '/images/batman.webp', alt: 'Batman' },
+  { src: '/images/elsa.avif', alt: 'Elsa' },
+  { src: '/images/gato-desconocido.avif', alt: 'Gato desconocido' },
+  { src: '/images/lola.avif', alt: 'Lola' },
+  { src: '/images/mika.avif', alt: 'Mika' },
+  { src: '/images/phil-leo.avif', alt: 'Phil y Leo' },
+  { src: '/images/snow-teodoro.avif', alt: 'Snow y Teodoro' },
+];
 ---
 
 <Layout
@@ -32,7 +42,7 @@ import Breadcrumbs from '@components/Breadcrumbs.astro';
     </p>
     <div class="flex justify-center mt-8">
       <a
-        href="https://www.espargats.com/adopta/nuestros-gatos"
+        href="/gatos-en-adopcion"
         target="_blank"
         rel="noopener"
         class="btn btn-primary btn-lg flex items-center gap-2"
@@ -354,6 +364,16 @@ import Breadcrumbs from '@components/Breadcrumbs.astro';
       </div>
     </div>
   </section>
+  <section class="mb-20 max-w-5xl mx-auto px-4 md:px-6">
+    <h2 class="text-2xl font-bold mb-4 text-primary text-left md:text-center">
+      Algunos de nuestros gatos adoptados
+    </h2>
+    <p class="text-base-content/80 text-center mb-8 max-w-2xl mx-auto">
+      Aquí tienes una pequeña muestra de los gatos que han encontrado un hogar
+      gracias a Espargats. Cada adopción es una historia de amor y esperanza.
+    </p>
+    <Gallery images={images} />
+  </section>
   <CallToAction>
     <h2 slot="heading" class="text-2xl font-bold mb-8 text-primary text-center">
       ¿Lista para dar el paso?
@@ -367,7 +387,7 @@ import Breadcrumbs from '@components/Breadcrumbs.astro';
     </p>
     <div slot="actions" class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <a
-        href="https://www.espargats.com/adopta/nuestros-gatos"
+        href="/gatos-en-adopcion"
         target="_blank"
         rel="noopener"
         class="btn btn-primary btn-lg flex items-center gap-2 justify-center"

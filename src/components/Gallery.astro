@@ -1,0 +1,32 @@
+---
+type Image = {
+  src: string;
+  alt?: string;
+};
+interface Props {
+  images: Image[];
+}
+const { images = [] }: Props = Astro.props;
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+  {
+    images.map((img: Image) => (
+      <div class="relative group">
+        <img
+          class="h-auto max-w-full rounded-lg aspect-square object-cover"
+          src={img.src}
+          alt={img.alt || ''}
+        />
+        <div class="absolute bottom-0 left-0 w-full h-1/3 rounded-b-lg bg-gradient-to-t from-black/80 to-transparent flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span
+            class="text-white text-sm md:text-base font-semibold p-3 w-full truncate"
+            style="text-shadow:0 1px 4px #0008;"
+          >
+            {img.alt}
+          </span>
+        </div>
+      </div>
+    ))
+  }
+</div>
