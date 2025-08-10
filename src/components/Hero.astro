@@ -8,29 +8,32 @@
   {
     /* Imagen de fondo para desktop, oculta en mobile. Añadir src y alt cuando se tenga la imagen. */
   }
+  <span
+    class="hidden md:block absolute inset-0 w-full h-full bg-neutral opacity-50 z-10"
+  ></span>
   <img
-    src=""
-    alt=""
-    class="hidden md:block absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-20 z-0"
+    src="/images/espargats-hero-02.avif"
+    alt="Hero"
+    class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0"
     fetchpriority="high"
     loading="eager"
     decoding="async"
     aria-hidden="true"
     draggable="false"
   />
-  <div class="relative z-10 w-full flex flex-col items-center">
+  <div class="relative w-full flex flex-col items-center z-20">
     <h1
-      class="text-4xl md:text-6xl font-extrabold mb-4 text-primary tracking-tight"
+      class="text-4xl md:text-6xl font-extrabold mb-4 text-base-100 tracking-tight"
     >
       Adoptar salva vidas
     </h1>
-    <p class="max-w-xl text-lg md:text-2xl text-base-content/80 mb-8">
+    <p class="max-w-xl text-lg md:text-2xl text-base-100 mb-8">
       Somos una organización dedicada al rescate, cuidado y adopción de gatos
       callejeros. Cada vida importa, cada historia merece un final feliz.
     </p>
     <div class="flex flex-col sm:flex-row gap-4">
       <a href="/adopta" class="btn btn-primary btn-lg shadow-lg"
-        >Adoptar un gatito</a
+        >Adoptar un gato</a
       >
       <a href="/colabora" class="btn btn-secondary btn-lg shadow"
         >Hacer una donación</a
