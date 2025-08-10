@@ -1,6 +1,6 @@
 ---
 const {
-  backgroundColor = 'bg-gradient-to-br from-primary to-primary/70',
+  backgroundColor = 'bg-gradient-to-br from-primary to-primary/80',
   contentColor = 'text-primary-content',
 } = Astro.props;
 ---
@@ -25,7 +25,7 @@ const {
     </slot>
     <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
       <slot name="actions">
-        <a href="/adopta" class="btn btn-neutral btn-lg w-full sm:w-auto"
+        <a href="/adopta" class="btn btn-secondary btn-lg w-full sm:w-auto"
           >Adopta un gato</a
         >
         <a href="/colabora" class="btn btn-outline btn-lg w-full sm:w-auto"

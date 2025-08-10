@@ -44,40 +44,37 @@ const cats = [
         cats.map((cat, idx) => (
           <article class="card bg-white shadow-lg border border-base-200 flex flex-col min-w-[75vw] sm:min-w-[340px] max-w-xs mx-2 snap-center lg:min-w-0 lg:w-full lg:max-w-none lg:mx-0 p-0">
             <div class="relative w-full">
+              {/* src={cat.image} */}
               <img
-                src={cat.image}
+                src="/images/about-02.webp"
                 alt={cat.name}
                 width={400}
                 height={300}
                 class="w-full h-56 object-cover rounded-t-2xl"
                 loading="lazy"
               />
-              <span class="absolute top-4 right-4 bg-primary text-white text-sm font-semibold px-4 py-1 rounded-full shadow-lg z-10">
+              <span class="absolute top-4 right-4 badge badge-soft badge-primary z-10">
                 {cat.age}
               </span>
             </div>
             <div class="card-body items-start text-left w-full">
               <div class="flex justify-between items-center w-full mb-2">
-                <h4 class="card-title text-2xl font-bold text-primary mb-0">
+                <h4 class="card-title text-xl font-bold text-primary mb-0">
                   {cat.name}
                 </h4>
-                <span class="badge bg-base-200 text-base-content/80 font-medium px-3 py-1 rounded-lg text-sm">
-                  {cat.gender}
-                </span>
+                <span class="badge badge-ghost">{cat.gender}</span>
               </div>
-              <p class="text-base-content/80 mb-3 text-lg">{cat.description}</p>
-              {/* <div class="flex items-center gap-2 mb-3 text-base-content/60 text-sm">
-                <MapPin />
-                <span>Centro de Adopción</span>
-              </div> */}
+              <p class="text-base-content/80 mb-2">{cat.description}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 {cat.tags.map((tag) => (
-                  <span class="badge badge-soft badge-primary">{tag}</span>
+                  <span class="badge badge-soft badge-sm badge-primary">
+                    {tag}
+                  </span>
                 ))}
               </div>
               <a
                 href="/adopta"
-                class="btn btn-accent btn-md w-full flex items-center justify-center gap-2 mt-2"
+                class="btn btn-secondary btn-md w-full flex items-center justify-center gap-2 mt-2"
               >
                 <Heart size="20" />
                 <span>Adoptar a {cat.name}</span>
