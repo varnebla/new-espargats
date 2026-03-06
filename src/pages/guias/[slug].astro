@@ -12,9 +12,14 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { title, content, thumbnail } = entry.data;
+const description =
+  content
+    .replace(/<[^>]+>/g, '')
+    .slice(0, 155)
+    .trim() + '…';
 ---
 
-<Layout title={title} description={title}>
+<Layout title={title} description={description}>
   <!-- ── HERO ──────────────────────────────────────────────── -->
   <section class="relative overflow-hidden pt-36 pb-12 bg-warm-cream">
     <div class="max-w-3xl mx-auto px-6">

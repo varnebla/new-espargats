@@ -8,37 +8,42 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="fantasy">
+<html lang="es" data-theme="fantasy">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={Astro.url.href} />
     <Font cssVariable="--font-sora" preload />
     <Font cssVariable="--font-general-sans" />
 
     <title>{title} | Espargats en Barcelona</title>
     <meta name="description" content={description} />
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://new-espargats.vercel.app/" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:url" content={Astro.url.href} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | Espargats en Barcelona`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/about-01.webp" />
+    <meta
+      property="og:image"
+      content={new URL('/images/about-01.webp', Astro.site).href}
+    />
 
-    <!-- Twitter Meta Tags -->
-    <meta name="
-      twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="new-espargats.vercel.app" />
-    <meta property="twitter:url" content="https://new-espargats.vercel.app/" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="espargats.com" />
+    <meta property="twitter:url" content={Astro.url.href} />
     <meta name="twitter:title" content={`${title} | Espargats en Barcelona`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/about-01.webp" /></head
-  >
-
-  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+    <meta
+      name="twitter:image"
+      content={new URL('/images/about-01.webp', Astro.site).href}
+    />
+    <slot name="head" />
+  </head>
 
   <body class="flex flex-col min-h-screen z-10">
     <Header />

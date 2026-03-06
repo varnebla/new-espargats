@@ -1,0 +1,85 @@
+---
+const faqs = [
+  {
+    q: '¿Cuánto cuesta adoptar un gato?',
+    a: 'La adopción es totalmente gratuita. Todos los gastos veterinarios (microchip, vacunas, desparasitaciones y prueba de enfermedades) los cubre Espargats. Aceptamos donaciones voluntarias para seguir ayudando a más gatos, pero no son obligatorias.',
+  },
+  {
+    q: '¿Qué incluye la adopción?',
+    a: 'Todos nuestros gatos se entregan con microchip registrado, vacuna trivalente, desparasitación interna y externa, prueba de leucemia (FeLV) y SIDA felino (FIV), y castración o esterilización si el gato supera los seis meses. Además recibirás su cartilla veterinaria y seguimiento personalizado durante la adaptación.',
+  },
+  {
+    q: '¿Qué requisitos necesito para adoptar?',
+    a: 'Hay que ser mayor de edad, disponer de un domicilio estable donde el gato pueda vivir cómodamente y comprometerse con su cuidado de por vida. Si el gato aún no está castrado por tener menos de seis meses, te pediremos que lo esterilices al cumplirlos y nos envíes el comprobante.',
+  },
+  {
+    q: '¿Puedo adoptar si vivo de alquiler?',
+    a: 'Sí, siempre que tu contrato o tu propietario te permita tener mascotas. Te pediremos que nos lo confirmes antes de formalizar la adopción.',
+  },
+  {
+    q: '¿Cuánto tarda el proceso de adopción?',
+    a: 'Normalmente entre unos días y dos o tres semanas, dependiendo de la disponibilidad del gato y de la coordinación con el veterinario. Respondemos siempre por WhatsApp, aunque como somos voluntarios puede que tardemos algunas horas.',
+  },
+  {
+    q: '¿Qué pasa si la convivencia no funciona?',
+    a: 'Si algo no sale como esperabas, contacta con nosotros antes de tomar ninguna decisión. Siempre recuperamos a nuestros gatos: nunca permitimos que vayan a otro lugar sin pasar por nosotros primero.',
+  },
+  {
+    q: '¿Cómo puedo ayudar si no puedo adoptar?',
+    a: 'Hay muchas formas de colaborar: puedes ser casa de acogida temporal, apadrinar a un gato desde 1 €/mes a través de Teaming, hacer una donación directa al IBAN, difundir nuestra labor en redes sociales o comprar productos de nuestra lista solidaria de Amazon.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<section class="py-20 bg-warm-cream relative overflow-hidden">
+  <span
+    class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-pastel-lavender/30 blur-3xl pointer-events-none"
+    aria-hidden="true"></span>
+  <span
+    class="absolute top-0 left-0 w-72 h-72 rounded-full bg-pastel-yellow/20 blur-3xl pointer-events-none"
+    aria-hidden="true"></span>
+
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14 animate-fade-in-up animate-play-paused">
+      <span class="text-3xl mb-3 block" aria-hidden="true">💬</span>
+      <h2
+        class="text-3xl md:text-4xl font-black text-primary tracking-tight mb-4"
+      >
+        Preguntas frecuentes
+      </h2>
+      <p class="text-base-content/70 max-w-xl mx-auto text-lg leading-relaxed">
+        Todo lo que necesitas saber antes de adoptar o colaborar con nosotros.
+      </p>
+    </div>
+
+    <div class="space-y-3 animate-fade-in-up animate-play-paused">
+      {
+        faqs.map(({ q, a }, i) => (
+          <div class="collapse collapse-arrow rounded-3xl bg-white/70 border border-base-200/60 shadow-sm hover:border-primary/20 transition-colors">
+            <input type="checkbox" name={`faq-${i}`} />
+            <div class="collapse-title font-bold text-primary text-lg pr-12 py-5">
+              {q}
+            </div>
+            <div class="collapse-content">
+              <p class="text-base-content/75 text-base leading-relaxed pb-2">
+                {a}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

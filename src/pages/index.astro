@@ -16,6 +16,36 @@ const description =
 ---
 
 <Layout title={title} description={description}>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Espargats',
+        url: 'https://www.espargats.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.espargats.com/favicon.svg',
+        },
+        description:
+          'Asociación sin ánimo de lucro dedicada a rescatar y cuidar gatos callejeros en Esparreguera (Barcelona). Gestionamos colonias felinas mediante el método CES, fomentamos la adopción responsable y ayudamos a los gatos a encontrar hogar.',
+        email: 'espargats@gmail.com',
+        telephone: '+34625017077',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Esparreguera',
+          addressRegion: 'Barcelona',
+          addressCountry: 'ES',
+        },
+        sameAs: [
+          'https://www.instagram.com/espargats',
+          'https://www.facebook.com/espargats',
+          'https://www.tiktok.com/@espargats.com',
+        ],
+      })}
+    />
+  </Fragment>
   <Hero />
   <About />
   <SectionDivider from="hsl(40,60%,97%)" to="hsl(38,50%,93%)" />
