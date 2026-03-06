@@ -17,7 +17,7 @@
     class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center"
   >
     <!-- LEFT: Copy -->
-    <div class="hero-left flex flex-col order-2 lg:order-1">
+    <div class="hero-left flex flex-col order-1">
       <!-- Eyebrow -->
       <span
         class="inline-flex items-center gap-3 text-primary/60 text-sm font-semibold tracking-widest uppercase mb-8"
@@ -31,10 +31,12 @@
         class="text-5xl md:text-6xl xl:text-7xl font-black text-primary tracking-tight leading-[1.05] mb-6"
       >
         Cada gato<br />merece un<br />
-        <span
-          class="text-secondary"
-          style="text-shadow: 3px 3px 0 hsl(275,42%,30%,0.10)">hogar.</span
-        >
+        <span class="relative inline-block text-primary">
+          <span
+            class="absolute inset-0 -skew-x-3 -skew-y-1 rounded-sm bg-pastel-yellow -z-10 scale-x-105 -translate-y-0.5"
+            aria-hidden="true"></span>
+          hogar.
+        </span>
       </h1>
 
       <!-- Body -->
@@ -82,9 +84,7 @@
     </div>
 
     <!-- RIGHT: Collage de fotos -->
-    <div
-      class="hero-right relative order-1 lg:order-2 flex justify-center lg:justify-end"
-    >
+    <div class="hero-right relative order-2 flex justify-center lg:justify-end">
       <!-- Blob de fondo pastel -->
       <span
         class="absolute inset-4 rounded-[48px] bg-pastel-lavender/40 rotate-2 scale-95 pointer-events-none"
