@@ -5,47 +5,80 @@ const testimonials = [
     description: 'Familia de Mimi',
     testimonial:
       'Adoptar a Mimi fue la mejor decisión. Llegó asustada y ahora es la reina de la casa. Gracias por todo el amor que le dieron.',
+    bg: 'bg-pastel-peach',
+    avatar: '👩',
   },
   {
     name: 'Carlos',
     description: 'Familia de Coco',
     testimonial:
       'El proceso de adopción fue muy profesional. Nos asesoraron perfectamente y ahora Coco es parte de nuestra familia.',
+    bg: 'bg-pastel-lavender',
+    avatar: '👨',
   },
   {
     name: 'Ana',
     description: 'Voluntaria',
     testimonial:
       'Colaboro como voluntaria desde hace 2 años. Ver cómo estos gatos encuentran hogares amorosos no tiene precio.',
+    bg: 'bg-pastel-mint',
+    avatar: '👩',
   },
 ];
 ---
 
-<section class="py-16 bg-primary-content/30">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2
-      class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-4 text-primary"
-    >
-      Historias de Éxito
-    </h2>
-    <p
-      class="text-center text-balance text-base-content/80 max-w-2xl mx-auto mb-10 text-lg"
-    >
-      Las palabras de nuestras familias adoptivas nos motivan a seguir adelante.
-    </p>
-    <div class="carousel w-full carousel-center gap-x-6 py-4">
+<section class="py-20 bg-base-200/50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="text-3xl mb-3 block" aria-hidden="true">❤️</span>
+      <h2
+        class="text-3xl md:text-4xl font-black text-center tracking-tight mb-4 text-primary"
+      >
+        Historias de éxito
+      </h2>
+      <p
+        class="text-center text-base-content/70 max-w-xl mx-auto text-lg leading-relaxed"
+      >
+        Las palabras de nuestras familias adoptivas nos motivan a seguir
+        adelante cada día.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       {
-        testimonials.map((testimonial, idx) => (
-          <article class="card carousel-item bg-white flex flex-col items-center text-center lg:flex-1 max-w-sm md:max-w-md w-full p-6 mx-auto">
-            <p class="text-base-content/80 text-lg mb-6">
-              “{testimonial.testimonial}”
+        testimonials.map((t) => (
+          <article
+            class:list={[
+              'rounded-3xl p-8 flex flex-col shadow-sm border border-white/70 relative overflow-hidden',
+              t.bg,
+            ]}
+          >
+            <span
+              class="absolute top-3 right-5 text-6xl font-black text-primary/10 leading-none select-none pointer-events-none"
+              aria-hidden="true"
+            >
+              ❝
+            </span>
+            <div class="flex gap-0.5 mb-4 text-secondary">
+              {Array(5)
+                .fill(null)
+                .map(() => (
+                  <span class="text-lg">★</span>
+                ))}
+            </div>
+            <p class="text-base-content/80 text-base leading-relaxed mb-6 flex-1 italic">
+              "{t.testimonial}"
             </p>
-            <h4 class="card-title text-xl font-bold text-primary mb-1">
-              {testimonial.name}
-            </h4>
-            <p class="text-base-content/60 text-base mb-2">
-              {testimonial.description}
-            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <span class="flex items-center justify-center w-11 h-11 rounded-full bg-white/70 text-2xl shadow-sm">
+                {t.avatar}
+              </span>
+              <div>
+                <p class="font-extrabold text-primary text-base leading-tight">
+                  {t.name}
+                </p>
+                <p class="text-base-content/50 text-sm">{t.description}</p>
+              </div>
+            </div>
           </article>
         ))
       }

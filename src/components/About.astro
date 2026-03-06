@@ -2,29 +2,55 @@
 
 ---
 
-<section class="py-16">
+<section class="py-20 bg-warm-cream relative overflow-hidden">
+  <!-- Decoración de fondo -->
+  <span
+    class="absolute -top-8 -right-8 w-48 h-48 rounded-full bg-pastel-lavender/50 blur-2xl pointer-events-none"
+    aria-hidden="true"></span>
+  <span
+    class="absolute bottom-0 -left-10 w-56 h-56 rounded-full bg-pastel-peach/40 blur-2xl pointer-events-none"
+    aria-hidden="true"></span>
+
   <div
-    class="grid grid-cols-1 lg:grid-cols-2 max-w-5xl mx-auto px-4 gap-x-16 gap-y-8"
+    class="grid grid-cols-1 lg:grid-cols-2 max-w-5xl mx-auto px-4 gap-x-16 gap-y-10 relative z-10"
   >
-    <img
-      src="/images/espargats-hero-03.avif"
-      class="rounded-2xl shadow-2xl aspect-video lg:aspect-square w-full object-cover"
-    />
+    <!-- Imagen con marco pastel -->
+    <div class="relative flex items-center justify-center">
+      <span
+        class="absolute inset-0 rounded-3xl bg-pastel-lavender/60 translate-x-3 translate-y-3 -z-10"
+      ></span>
+      <img
+        src="/images/espargats-hero-03.avif"
+        class="rounded-3xl shadow-lg aspect-video lg:aspect-square w-full object-cover border-4 border-white"
+        alt="Voluntarios de Espargats cuidando gatos"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Texto -->
     <div class="flex flex-col justify-center">
+      <span class="text-3xl mb-3" aria-hidden="true">🐾</span>
       <h2
-        class="text-3xl md:text-4xl font-bold text-left mb-4 text-primary tracking-tight"
+        class="text-3xl md:text-4xl font-black text-left mb-5 text-primary tracking-tight leading-tight"
       >
         Quiénes somos
       </h2>
-      <p class="text-left text-base-content mb-2 text-lg text-balance">
+      <p class="text-left text-base-content/80 mb-4 text-lg leading-relaxed">
         Somos una asociación sin ánimo de lucro, formada por voluntarios y
-        voluntarias, y creada para gestionar y controlar las colonias de gatos
-        de Esparreguera (Barcelona).
+        voluntarias, creada para gestionar y controlar las colonias de gatos de <strong
+          class="text-primary font-bold">Esparreguera (Barcelona)</strong
+        >.
       </p>
-      <p class="text-left text-base-content text-lg text-balance">
+      <p class="text-left text-base-content/80 text-lg leading-relaxed mb-8">
         También rescatamos a gatos que han sido abandonados o que viven en la
         calle y les buscamos un hogar mediante adopciones responsables.
       </p>
+      <a
+        href="/about"
+        class="btn btn-primary btn-md rounded-full w-fit font-bold px-7"
+      >
+        Nuestra historia
+      </a>
     </div>
   </div>
 </section>

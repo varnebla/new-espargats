@@ -6,6 +6,7 @@ import Contact from '@/components/Contact.astro';
 import HelpUs from '@/components/HelpUs.astro';
 import Hero from '@/components/Hero.astro';
 import Mission from '@/components/Mission.astro';
+import SectionDivider from '@/components/SectionDivider.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import Layout from '@layouts/Layout.astro';
 
@@ -17,11 +18,14 @@ const description =
 <Layout title={title} description={description}>
   <Hero />
   <About />
+  <SectionDivider from="hsl(40,60%,97%)" to="hsl(38,50%,93%)" />
   <Mission />
+  <SectionDivider from="hsl(38,50%,93%)" to="hsl(40,60%,97%)" flip />
   <Adoption />
-  <CallToAction />
+  <SectionDivider from="hsl(275,55%,95%)" to="hsl(38,50%,93%)" />
   <HelpUs />
   <Testimonials />
+  <SectionDivider from="hsl(38,50%,93%)" to="hsl(275,42%,30%)" />
   <CallToAction />
   <!-- <Contact /> -->
 </Layout>

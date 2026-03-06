@@ -1,0 +1,22 @@
+---
+interface Props {
+  from: string;
+  to: string;
+  flip?: boolean;
+}
+const { from, to, flip = false } = Astro.props;
+---
+
+<div
+  style={`background: ${from}; line-height: 0; display: block; overflow: hidden;`}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 1440 52"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    style={`width: 100%; height: 52px; display: block;${flip ? ' transform: scaleX(-1);' : ''}`}
+  >
+    <path d="M0,0 C320,52 820,4 1440,36 L1440,52 L0,52 Z" fill={to}></path>
+  </svg>
+</div>

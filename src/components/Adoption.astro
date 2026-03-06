@@ -1,135 +1,118 @@
 ---
-import { Heart, MapPin } from '@lucide/astro';
+import { Heart } from '@lucide/astro';
+import SectionDivider from '@components/SectionDivider.astro';
 const cats = [
   {
     name: 'Dulce',
     age: '1 año',
     gender: 'Macho',
-    image: 'https://via.placeholder.com/150',
-    description: 'Gato 1 es un gato muy bonito y juguetón.',
-    tags: ['Juguetón', 'Amigable', 'Cariñoso'],
+    image: '/images/mika.avif',
+    description: 'Un chico tranquilo y observador que adora los mimos al caer la tarde.',
+    tags: ['Tranquilo', 'Mimoso', 'Curioso'],
   },
   {
     name: 'Cactus',
     age: '1 año',
     gender: 'Macho',
-    image: 'https://via.placeholder.com/150',
-    description: 'Gato 1 es un gato muy bonito y juguetón.',
-    tags: ['Juguetón', 'Amigable', 'Cariñoso'],
+    image: '/images/phil-leo.avif',
+    description: 'Juguetón y valiente, le encanta explorar cada rincón que encuentra.',
+    tags: ['Juguetón', 'Valiente', 'Explorador'],
   },
   {
     name: 'Coco',
-    age: '1 año',
+    age: '2 años',
     gender: 'Hembra',
-    image: 'https://via.placeholder.com/150',
-    description: 'Gato 1 es un gato muy bonito y juguetón.',
-    tags: ['Traviesa', 'Amigable', 'Cariñoso'],
+    image: '/images/elsa.avif',
+    description: 'Dulce y sociable, se lleva genial con otros gatos y con niños.',
+    tags: ['Dulce', 'Sociable', 'Familiar'],
   },
 ];
 ---
 
-<section class="py-16 bg-primary-content/30">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
-      Encuentra tu Compañero Perfecto
-    </h2>
-    <p class="text-center text-base-content/80 max-w-2xl mx-auto mb-10 text-lg">
-      Estos hermosos gatos están esperando una familia que les brinde amor y
-      cuidado. ¿Podrías ser tú quien les dé una segunda oportunidad?
-    </p>
-    <div
-      class="flex gap-4 overflow-x-auto overflow-y-visible snap-x snap-mandatory scrollbar-hide mb-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:snap-none px-2 py-8 mx-auto"
-    >
-      {
-        cats.map((cat, idx) => (
-          <article class="card bg-white shadow-lg border border-base-200 flex flex-col min-w-[75vw] sm:min-w-[340px] max-w-xs mx-2 snap-center lg:min-w-0 lg:w-full lg:max-w-none lg:mx-0 p-0">
-            <div class="relative w-full">
-              {/* src={cat.image} */}
-              <img
-                src="/images/about-02.webp"
-                alt={cat.name}
-                width={400}
-                height={300}
-                class="w-full h-56 object-cover rounded-t-2xl"
-                loading="lazy"
-              />
-              <span class="absolute top-4 right-4 badge badge-soft badge-primary z-10">
-                {cat.age}
-              </span>
-            </div>
-            <div class="card-body items-start text-left w-full">
-              <div class="flex justify-between items-center w-full mb-2">
-                <h4 class="card-title text-xl font-bold text-primary mb-0">
-                  {cat.name}
-                </h4>
-                <span class="badge badge-ghost">{cat.gender}</span>
-              </div>
-              <p class="text-base-content/80 mb-2">{cat.description}</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                {cat.tags.map((tag) => (
-                  <span class="badge badge-soft badge-sm badge-primary">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <a
-                href="/adopta"
-                class="btn btn-secondary btn-md w-full flex items-center justify-center gap-2 mt-2"
-              >
-                <Heart size="20" />
-                <span>Adoptar a {cat.name}</span>
-              </a>
-            </div>
-          </article>
-        ))
-      }
+<section class="py-20 bg-warm-cream relative overflow-hidden">
+  <span class="absolute top-0 right-0 w-72 h-72 rounded-full bg-pastel-yellow/30 blur-3xl pointer-events-none" aria-hidden="true"></span>
+
+  <div class="max-w-6xl mx-auto px-4 relative z-10">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <span class="text-3xl mb-3 block" aria-hidden="true">😻</span>
+      <h2 class="text-3xl md:text-4xl font-black text-center mb-4 text-primary tracking-tight">
+        Encuentra tu compañero perfecto
+      </h2>
+      <p class="text-center text-base-content/70 max-w-2xl mx-auto text-lg leading-relaxed">
+        Estos hermosos gatitos están esperando una familia que les dé amor y un hogar.
+        ¿Podrías ser tú?
+      </p>
     </div>
+
+    <!-- Cards de gatos -->
+    <div class="flex gap-5 overflow-x-auto overflow-y-visible snap-x snap-mandatory pb-4 mb-10 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none px-2 lg:px-0">
+      {cats.map((cat) => (
+        <article class="card bg-white shadow-md border border-base-200/80 flex flex-col min-w-[78vw] sm:min-w-[340px] max-w-xs snap-center lg:min-w-0 lg:w-full lg:max-w-none rounded-3xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+          <div class="relative w-full">
+            <img
+              src={cat.image}
+              alt={`Foto de ${cat.name}`}
+              class="w-full h-56 object-cover"
+              loading="lazy"
+            />
+            <!-- Overlay gradiente suave -->
+            <span class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></span>
+            <span class="absolute top-3 right-3 badge bg-pastel-yellow text-primary border-0 font-bold text-sm shadow-sm">
+              {cat.age}
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex justify-between items-center mb-2">
+              <h4 class="text-xl font-extrabold text-primary">{cat.name}</h4>
+              <span class="badge badge-ghost text-base-content/60 text-xs">{cat.gender}</span>
+            </div>
+            <p class="text-base-content/70 text-base mb-4 leading-relaxed flex-1">{cat.description}</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              {cat.tags.map((tag) => (
+                <span class="badge bg-pastel-lavender text-primary border-0 text-xs font-semibold">{tag}</span>
+              ))}
+            </div>
+            <a href="/adopta" class="btn btn-secondary btn-md rounded-full w-full font-bold flex items-center gap-2">
+              <Heart size="17" />
+              Adoptar a {cat.name}
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA ver todos -->
     <div class="flex justify-center">
-      <a href="/adopta" class="btn btn-primary btn-lg"
-        >Conoce a todos nuestros gatos</a
-      >
+      <a href="/adopta" class="btn btn-primary btn-lg rounded-full px-10 font-bold shadow-md">
+        Conoce a todos nuestros gatos 🐱
+      </a>
     </div>
   </div>
 </section>
-<section class="py-16">
-  <div class="max-w-5xl mx-auto">
-    <h3 class="text-2xl font-bold text-center mb-8 text-primary">
+
+<SectionDivider from="hsl(40,60%,97%)" to="hsl(275,55%,95%)" />
+
+<!-- Proceso de adopción -->
+<section class="py-20" style="background: hsl(275,55%,95%)">
+  <div class="max-w-5xl mx-auto px-4">
+    <h3 class="text-2xl md:text-3xl font-black text-center mb-12 text-primary tracking-tight">
       Proceso de adopción responsable
     </h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-base-100 flex flex-col items-center text-center px-6 py-8">
-        <span
-          class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-primary/10 text-primary text-xl font-bold"
-          >1</span
-        >
-        <h4 class="font-semibold mb-3 text-lg">Solicitud</h4>
-        <p class="text-base-content/80 text-base">
-          Te enamoras de uno de nuestros adorables gatos y rellenas el
-          formulario con tus datos para conocerte mejor.
-        </p>
-      </div>
-      <div class="bg-base-100 flex flex-col items-center text-center px-6 py-8">
-        <span
-          class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-primary/10 text-primary text-xl font-bold"
-          >2</span
-        >
-        <h4 class="font-semibold mb-3 text-lg">Revisión</h4>
-        <p class="text-base-content/80 text-base">
-          Revisaremos tu solicitud y te contactaremos con más información.
-        </p>
-      </div>
-      <div class="bg-base-100 flex flex-col items-center text-center px-6 py-8">
-        <span
-          class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-primary/10 text-primary text-xl font-bold"
-          >3</span
-        >
-        <h4 class="font-semibold mb-3 text-lg">Recogida</h4>
-        <p class="text-base-content/80 text-base">
-          Si todo va bien, muy pronto podrás venir a recoger a tu nuevo amor
-          felino y llevártelo a casa. Quiérelo, cuídalo y tendrás un amor
-          sincero de por vida.
-        </p>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        { step: '1', title: 'Enamórate', text: 'Descubre a uno de nuestros gatitos y rellena el formulario de solicitud para que podamos conocerte mejor.' },
+        { step: '2', title: 'Revisión', text: 'Revisaremos tu solicitud y te contactaremos para hacerte una pequeña entrevista y resolver tus dudas.' },
+        { step: '3', title: '¡A casa!', text: 'Si todo cuadra, podrás venir a recoger a tu nuevo amor felino. Un vínculo para toda la vida os espera.' },
+      ].map((item) => (
+        <div class="bg-white rounded-3xl flex flex-col items-center text-center px-7 py-9 shadow-sm border border-white">
+          <span class="flex items-center justify-center w-12 h-12 mb-5 rounded-full bg-primary text-primary-content text-lg font-black shadow-md">
+            {item.step}
+          </span>
+          <h4 class="font-extrabold mb-3 text-lg text-primary">{item.title}</h4>
+          <p class="text-base-content/70 text-base leading-relaxed">{item.text}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

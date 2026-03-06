@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,5 +11,21 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://www.espargats.com',
-  integrations: [sitemap()]
+  integrations: [sitemap()],
+  fonts: [
+    {
+      provider: fontProviders.fontshare(),
+      name: 'Sora',
+      cssVariable: '--font-sora',
+      weights: [600, 700, 800],
+      styles: ['normal'],
+    },
+    {
+      provider: fontProviders.fontshare(),
+      name: 'General Sans',
+      cssVariable: '--font-general-sans',
+      weights: [400, 500, 600],
+      styles: ['normal'],
+    },
+  ],
 });
