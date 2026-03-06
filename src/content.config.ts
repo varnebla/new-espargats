@@ -6,6 +6,7 @@ const guidesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     content: z.string(),
+    thumbnail: z.object({ src: z.string(), alt: z.string() }).optional(),
   }),
 });
 

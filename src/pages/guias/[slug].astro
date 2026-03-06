@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-// 1. Genera una nueva ruta para cada entrada de colección
+
 export async function getStaticPaths() {
   const guidesEntries = await getCollection('guias');
   return guidesEntries.map((entry) => ({
@@ -9,23 +9,102 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-// 2. Para tu plantilla, puedes obtener la entrada directamente de la prop
+
 const { entry } = Astro.props;
+const { title, content, thumbnail } = entry.data;
 ---
 
-<Layout>
-  <section class="max-w-3xl mx-auto py-12 px-4">
-    {
-      entry ? (
-        <>
-          <div
-            class="prose prose-lg max-w-none prose-h1:text-4xl prose-h1:md:text-5xl prose-h1:font-extrabold prose-h1:text-primary prose-h1:tracking-tight"
-            set:html={entry.data.content}
-          />
-        </>
-      ) : (
-        <p class="text-center text-error">Guía no encontrada.</p>
-      )
-    }
+<Layout title={title} description={title}>
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden pt-36 pb-12 bg-warm-cream">
+    <div class="max-w-3xl mx-auto px-6">
+      <a
+        href="/about#guias"
+        class="flex items-center gap-2 text-primary/60 text-sm font-semibold tracking-wide mb-6 hover:text-primary transition-colors w-fit"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="15 18 9 12 15 6"></polyline></svg
+        >
+        Todas las guías
+      </a>
+      <h1
+        class="text-4xl md:text-5xl font-black text-primary tracking-tight leading-tight"
+      >
+        {title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- ── CONTENIDO ─────────────────────────────────────────── -->
+  <section class="pb-20 bg-warm-cream">
+    <div class="max-w-3xl mx-auto px-6">
+      {
+        thumbnail && (
+          <div class="mb-12 rounded-3xl overflow-hidden shadow-xl border-4 border-white/80">
+            <img
+              src={thumbnail.src}
+              alt={thumbnail.alt}
+              class="w-full h-64 md:h-80 object-cover"
+              loading="eager"
+            />
+          </div>
+        )
+      }
+
+      <div
+        class="prose prose-lg max-w-none
+          [&>h1]:hidden
+          prose-headings:font-black prose-headings:text-primary prose-headings:tracking-tight
+          prose-h1:text-3xl prose-h1:md:text-4xl prose-h1:mb-6 prose-h1:mt-0
+          prose-h2:text-2xl prose-h2:mt-10
+          prose-h3:text-xl
+          prose-p:text-base-content/80 prose-p:leading-relaxed
+          prose-a:text-primary prose-a:font-semibold prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-primary/70
+          prose-strong:text-primary prose-strong:font-bold
+          prose-ul:pl-5 prose-li:text-base-content/80 prose-li:leading-relaxed
+          prose-ul:marker:text-primary"
+        set:html={content}
+      />
+
+      <div
+        class="mt-16 pt-8 border-t border-base-200 flex items-center justify-between gap-4 flex-wrap"
+      >
+        <a
+          href="/about#guias"
+          class="inline-flex items-center gap-2 text-primary/70 text-sm font-semibold hover:text-primary transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="15 18 9 12 15 6"></polyline></svg
+          >
+          Volver a las guías
+        </a>
+        <a
+          href="https://wa.me/34625017077"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary btn-sm rounded-full font-bold px-6"
+        >
+          ¿Tienes dudas? Escríbenos
+        </a>
+      </div>
+    </div>
   </section>
 </Layout>
