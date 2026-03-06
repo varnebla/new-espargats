@@ -9,24 +9,200 @@ interface Props {
 const { images = [] }: Props = Astro.props;
 ---
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery-grid">
   {
-    images.map((img: Image) => (
-      <div class="relative group">
+    images.map((img: Image, i: number) => (
+      <button
+        class="relative group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+        data-gallery-index={i}
+        aria-label={`Abrir imagen: ${img.alt || i + 1}`}
+        type="button"
+      >
         <img
-          class="h-auto max-w-full rounded-lg aspect-square object-cover"
+          class="h-auto max-w-full rounded-lg aspect-square object-cover w-full"
           src={img.src}
           alt={img.alt || ''}
         />
         <div class="absolute bottom-0 left-0 w-full h-1/3 rounded-b-lg bg-gradient-to-t from-black/80 to-transparent flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <span
-            class="text-white text-sm md:text-base font-semibold p-3 w-full truncate"
+            class="text-white text-sm md:text-base font-semibold p-3 w-full truncate text-left"
             style="text-shadow:0 1px 4px #0008;"
           >
             {img.alt}
           </span>
         </div>
-      </div>
+      </button>
     ))
   }
 </div>
+
+<!-- Lightbox -->
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-[9999] flex items-center justify-center hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Visor de imágenes"
+>
+  <!-- Backdrop -->
+  <div
+    id="gallery-backdrop"
+    class="absolute inset-0 bg-black/80 backdrop-blur-md"
+  >
+  </div>
+
+  <!-- Close -->
+  <button
+    id="gallery-close"
+    class="absolute top-4 right-4 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors"
+    aria-label="Cerrar"
+    type="button"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><line x1="18" y1="6" x2="6" y2="18"></line><line
+        x1="6"
+        y1="6"
+        x2="18"
+        y2="18"></line></svg
+    >
+  </button>
+
+  <!-- Prev -->
+  <button
+    id="gallery-prev"
+    class="absolute left-3 md:left-6 z-20 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors"
+    aria-label="Imagen anterior"
+    type="button"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><polyline points="15 18 9 12 15 6"></polyline></svg
+    >
+  </button>
+
+  <!-- Image -->
+  <div
+    class="relative z-10 flex flex-col items-center gap-3 max-w-[74vw] md:max-w-[80vw] max-h-[90vh]"
+  >
+    <img
+      id="gallery-lightbox-img"
+      src=""
+      alt=""
+      class="max-w-[90vw] max-h-[80vh] rounded-2xl shadow-2xl object-contain select-none"
+      draggable="false"
+    />
+    <p
+      id="gallery-lightbox-caption"
+      class="text-white/80 text-sm font-medium tracking-wide"
+    >
+    </p>
+  </div>
+
+  <!-- Next -->
+  <button
+    id="gallery-next"
+    class="absolute right-3 md:right-6 z-20 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors"
+    aria-label="Imagen siguiente"
+    type="button"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg
+    >
+  </button>
+</div>
+
+<script>
+  const images = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(
+      '#gallery-grid [data-gallery-index]',
+    ),
+  );
+  const lightbox = document.getElementById('gallery-lightbox')!;
+  const backdrop = document.getElementById('gallery-backdrop')!;
+  const img = document.getElementById(
+    'gallery-lightbox-img',
+  ) as HTMLImageElement;
+  const caption = document.getElementById('gallery-lightbox-caption')!;
+  const btnClose = document.getElementById('gallery-close')!;
+  const btnPrev = document.getElementById('gallery-prev')!;
+  const btnNext = document.getElementById('gallery-next')!;
+  const header = document.querySelector<HTMLElement>(
+    'body > div[class*="fixed"]',
+  );
+
+  let current = 0;
+
+  function open(index: number) {
+    current = index;
+    update();
+    lightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (header) header.style.zIndex = '0';
+    btnClose.focus();
+  }
+
+  function close() {
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = '';
+    if (header) header.style.zIndex = '';
+  }
+
+  function update() {
+    const btn = images[current];
+    const src = btn.querySelector('img')?.src ?? '';
+    const alt = btn.querySelector('img')?.alt ?? '';
+    img.src = src;
+    img.alt = alt;
+    caption.textContent = alt;
+  }
+
+  function prev() {
+    current = (current - 1 + images.length) % images.length;
+    update();
+  }
+  function next() {
+    current = (current + 1) % images.length;
+    update();
+  }
+
+  images.forEach((btn) => {
+    btn.addEventListener('click', () => open(Number(btn.dataset.galleryIndex)));
+  });
+
+  btnClose.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>
