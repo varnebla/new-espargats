@@ -3,40 +3,101 @@ import Layout from '@layouts/Layout.astro';
 import {
   Coffee,
   Coins,
-  Clipboard,
   Fish,
   House,
-  Cat,
   HandHeart,
   ArrowUpRight,
   Drumstick,
   CalendarHeart,
   Handshake,
+  Cat,
   Info,
 } from '@lucide/astro';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
+import SectionDivider from '@components/SectionDivider.astro';
+
+const ways = [
+  {
+    icon: Coffee,
+    title: 'Únete al Teaming',
+    text: 'Micro donaciones de 1 € al mes. Sin comisiones y hasta cuando tú quieras. Menos que un café, más que una ayuda.',
+    bg: 'bg-pastel-mint',
+    cta: 'Únete al TEAM por 1€/mes',
+    href: 'https://www.teaming.net/espargats',
+    iban: null,
+  },
+  {
+    icon: Coins,
+    title: 'Donación puntual',
+    text: 'Transferencia bancaria directa. Todo lo recaudado va íntegramente a veterinaria, alimentación, esterilización y colonias.',
+    bg: 'bg-pastel-lavender',
+    cta: null,
+    href: null,
+    iban: 'ES20 0049 3865 1822 1403 7302',
+  },
+  {
+    icon: Fish,
+    title: 'Donación de comida',
+    text: 'Latitas para bebés y pienso para adultos. Puedes enviarlo por Amazon o directamente a C/ de Baix 44, Esparreguera.',
+    bg: 'bg-pastel-peach',
+    cta: 'Contacta con nosotras',
+    href: 'https://wa.me/34625017077',
+    iban: null,
+  },
+  {
+    icon: House,
+    title: 'Casa de acogida',
+    text: 'Abre tu hogar temporalmente a un gato rescatado. Una de las formas más valiosas de ayudar mientras encuentran familia.',
+    bg: 'bg-pastel-yellow',
+    cta: 'Quiero ser casa de acogida',
+    href: 'mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesado%20en%20ser%20casa%20de%20acogida',
+    iban: null,
+  },
+];
+
+const volunteeringRoles = [
+  {
+    icon: Drumstick,
+    title: 'Alimentando colonias',
+    text: 'Ayuda a alimentar y cuidar a los gatos que viven en las colonias felinas de Esparreguera.',
+  },
+  {
+    icon: Cat,
+    title: 'Cuidado en el Refugi',
+    text: 'Colabora en la atención y bienestar de los gatos que viven en El Refugi.',
+  },
+  {
+    icon: CalendarHeart,
+    title: 'Eventos solidarios',
+    text: 'Participa en paraditas y actividades de recaudación como Sant Jordi o la Fira de Santa Llúcia.',
+  },
+  {
+    icon: Handshake,
+    title: 'Recogidas de alimentos',
+    text: 'Ayuda en campañas de recogida de comida y productos en tiendas colaboradoras.',
+  },
+];
 
 const products = [
   {
-    name: 'Piensos y comida húmeda para gatos',
-    description:
-      'Latas de leche para nuestros pequeños rescatados. Indispensables en sus primeros días de vida.',
-    link: 'https://www.amazon.es/shop/espargats?listId=1X2Y3Z4A5B6C7D8E9F0G',
-    image: '/images/piensos-comida-humeda.jpg',
+    title: 'Piensos y comida húmeda',
+    text: 'Latitas y pienso para nuestros rescatados. Los mismos que usan nuestros adoptantes.',
+    href: 'https://www.amazon.es/shop/espargats?listId=1X2Y3Z4A5B6C7D8E9F0G',
+    icon: Fish,
+    bg: 'bg-pastel-mint',
   },
   {
-    name: 'Arena para gatos',
-    description:
-      'Diamond Care Fresh, con fragancia - Arena fina con carbón activo y aloe vera 1 saco (10 l)',
-    link: 'https://www.amazon.es/shop/espargats?listId=1H2I3J4K5L6M7N8O9P0Q',
-    image: '/images/arena-gatos.jpg',
+    title: 'Arena para gatos',
+    text: 'Diamond Care Fresh, con carbón activo y aloe vera. La favorita de nuestras casas de acogida.',
+    href: 'https://www.amazon.es/shop/espargats?listId=1H2I3J4K5L6M7N8O9P0Q',
+    icon: Cat,
+    bg: 'bg-pastel-lavender',
   },
   {
-    name: 'Juguetes y accesorios para gatos',
-    description:
-      'Torre rascador gris para gatos con varios niveles: zona de actividades con 7 postes de sisal, 5 plataformas, y 2 nidos.',
-    link: 'https://www.amazon.es/shop/espargats?listId=1R2S3T4U5V6W7X8Y9Z0A',
-    image: '/images/juguetes-accesorios.jpg',
+    title: 'Juguetes y accesorios',
+    text: 'Torres rascadoras, juguetes y accesorios recomendados por nuestras acogidas y adoptantes.',
+    href: 'https://www.amazon.es/shop/espargats?listId=1R2S3T4U5V6W7X8Y9Z0A',
+    icon: HandHeart,
+    bg: 'bg-pastel-peach',
   },
 ];
 ---
@@ -45,372 +106,335 @@ const products = [
   title="Colabora con Espargats"
   description="Descubre cómo puedes ayudar a los gatos de Espargats en Barcelona. Desde donaciones hasta voluntariado, hay muchas formas de colaborar."
 >
-  <h1
-    class="text-4xl md:text-5xl font-extrabold text-primary text-center mb-6 tracking-tight mt-12"
-  >
-    Colabora con Espargats
-  </h1>
-  <p
-    class="text-lg md:text-xl text-base-content/80 text-center max-w-2xl mx-auto mb-12 px-2 md:px-0"
-  >
-    Como todas las grandes cosas de la vida, nuestro proyecto empezó pequeño.
-    Hoy contamos con muchas personas que ayudan a que podamos ofrecer una vida
-    mejor a los gatos callejeros y abandonados. Hay muchas formas de colaborar
-    con nosotros, encuentra la que mejor se ajuste a ti. ¡Gracias!
-  </p>
-  <section class="mb-20 max-w-5xl mx-auto px-2 md:px-6">
-    <h2 class="text-2xl font-bold mb-8 text-primary text-center">
-      Tu Ayuda Salva Vidas
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <article
-        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4 justify-between"
-      >
-        <div>
-          <header class="flex items-center gap-4 mb-6">
-            <span
-              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-              ><Coffee /></span
-            >
-            <h3 class="text-lg font-semibold">¡Únete a nuestro Teaming!</h3>
-          </header>
-          <div class="text-base-content/80">
-            <p class="mb-2">
-              Teaming es una herramienta online para recaudar fondos para causas
-              sociales a través de micro donaciones de 1 € al mes. ¡Menos de lo
-              que vale un café!
-            </p>
-            <ul class="list-disc pl-5 mt-2 space-y-1">
-              <li>Tu donación se realizará de manera automática</li>
-              <li>Sin comisiones</li>
-              <li>Hasta que tú lo decidas</li>
-            </ul>
-          </div>
-        </div>
-        <footer class="mt-4">
-          <a
-            href="https://www.teaming.net/espargats"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary btn-block flex items-center gap-2"
-          >
-            <HandHeart />
-            <span>Únete al TEAM por 1€ al mes</span>
-          </a>
-        </footer>
-      </article>
-      <article
-        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
-      >
-        <header class="flex items-center gap-4 mb-2">
-          <span
-            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-            ><Coins /></span
-          >
-          <h3 class="text-lg font-semibold">Donaciones puntuales</h3>
-        </header>
-        <div class="text-base-content/80">
-          <p class="mb-2">
-            Puedes ayudarnos haciendo donaciones económicas puntuales. Esperamos
-            disponer pronto del código Bizum ONG, pero por el momento puedes
-            hacer tu donación en forma de transferencia bancaria.
-          </p>
-          <p>Todo el dinero que recaudamos lo destinamos íntegramente a:</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li>Facturas veterinarias</li>
-            <li>Alimentación y cuidados</li>
-            <li>Esterilización</li>
-            <li>Acondicionamiento de las colonias</li>
-          </ul>
-        </div>
-        <footer class="mt-4">
-          <button
-            class="btn btn-outline btn-block flex items-center gap-2 select-all"
-          >
-            <Clipboard />
-            <span>ES20 0049 3865 1822 1403 7302</span>
-          </button>
-        </footer>
-      </article>
-      <article
-        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
-      >
-        <header class="flex items-center gap-4 mb-2">
-          <span
-            class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-            ><Fish /></span
-          >
-          <h3 class="text-lg font-semibold">Donación de comida</h3>
-        </header>
-        <div class="text-base-content/80">
-          <p class="mb-2">
-            Necesitamos latitas para alimentar a los bebés y pienso para adoptar
-            a los gatos más adultos. Si quieres colaborar enviando comida,
-            puedes hacerlo a través de <a
-              href="http://"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link link-primary">Amazon</a
-            > o de tu tienda de confianza y enviarlo a la siguiente dirección:
-          </p>
-          <p>
-            <strong>BCN Retroclass</strong><br />C/ de Baix, 44, 08292
-            Esparreguera
-          </p>
-          <p>
-            Si tienes dudas o quieres preguntarnos antes por las necesidades
-            concretas, puedes:
-          </p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            <li>
-              Escribirnos a <a
-                href="mailto:espargats@gmail.com"
-                class="link link-primary">espargats@gmail.com</a
-              >
-            </li>
-            <li>
-              Enviarnos un Whatsapp al <a
-                href="https://wa.me/625017077"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link link-primary">625017077</a
-              >
-            </li>
-            <li>
-              Escribirnos un <a
-                href="http://instagram.com/espargats"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link link-primary">mensaje privado en Instagram</a
-              >
-            </li>
-          </ul>
-        </div>
-        <footer class="mt-4">
-          <a
-            href="https://wa.me/625017077"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary btn-block flex items-center gap-2"
-          >
-            <HandHeart />
-            <span>Contacta con nosotras</span>
-          </a>
-        </footer>
-      </article>
-      <article
-        class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col justify-between gap-4"
-      >
-        <div>
-          <header class="flex items-center gap-4 mb-6">
-            <span
-              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-              ><House /></span
-            >
-            <h3 class="text-lg font-semibold">Casa de acogida</h3>
-          </header>
-          <div class="text-base-content/80">
-            <p class="mb-2">
-              Ser casa de acogida es muy gratificante, ya que es una forma de
-              contribuir y ayudar a cambiar la vida de los gatos que han sido
-              abandonados o que viven en la calle.
-            </p>
-            <p>
-              Siendo casa de acogida, podrás ayudar a gatitos que llevan muy
-              poco en este mundo y están deseando encontrar un hogar. Y también
-              a gatos adultos, que no pierden la esperanza de encontrar una
-              familia definitiva con la que crecer.
-            </p>
-          </div>
-        </div>
-        <footer class="mt-4">
-          <a
-            href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesado%20en%20ser%20casa%20de%20acogida"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary btn-block flex items-center gap-2"
-          >
-            <HandHeart />
-            <span>Quiero ser casa de acogida</span>
-          </a>
-        </footer>
-      </article>
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden pt-36 pb-16">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-pastel-rose/60 via-warm-cream to-pastel-peach/40 -z-10"
+    >
     </div>
-  </section>
+    <span
+      class="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-pastel-rose/40 blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"
+      aria-hidden="true"></span>
+    <span
+      class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-pastel-peach/40 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none"
+      aria-hidden="true"></span>
 
-  <section
-    class="mb-20 px-2 md:px-6 bg-gradient-to-br from-primary-content/40 to-base-100 py-20"
-  >
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold mb-8 text-primary text-center">
-        Voluntariado en Espargats
-      </h2>
-      <div class="bg-base-100 rounded-xl shadow-lg p-8 mb-8">
-        <p
-          class="text-base-content/80 text-center mb-4 max-w-3xl mx-auto text-balance"
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <span
+        class="inline-flex items-center gap-2 text-primary/60 text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in animate-delay-100"
+      >
+        <span class="w-6 h-px bg-primary/30"></span>
+        Esparreguera, Barcelona
+        <span class="w-6 h-px bg-primary/30"></span>
+      </span>
+      <h1
+        class="text-5xl md:text-6xl xl:text-7xl font-black text-primary tracking-tight leading-[1.05] mb-6 animate-fade-in-up animate-delay-200"
+      >
+        Colaborar
+        <span class="relative inline-block">
+          <span
+            class="absolute inset-0 -skew-x-3 -skew-y-1 rounded-sm bg-pastel-yellow -z-10 scale-x-105 -translate-y-0.5"
+            aria-hidden="true"></span>
+          cambia vidas.
+        </span>
+      </h1>
+      <p
+        class="text-base-content/65 text-xl leading-relaxed max-w-xl mx-auto mb-10 animate-fade-in animate-delay-300"
+      >
+        Como todas las grandes cosas, nuestro proyecto empezó pequeño. Hoy
+        contamos con personas increíbles que hacen posible una vida mejor para
+        los gatos de Esparreguera.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400"
+      >
+        <a
+          href="https://www.teaming.net/espargats"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary btn-lg rounded-full px-9 font-bold shadow-md"
         >
-          Ser voluntaria en Espargats significa formar parte de una comunidad
-          que trabaja cada día para mejorar la vida de los gatos callejeros y
-          abandonados de Esparreguera. Puedes colaborar de muchas maneras, según
-          tu disponibilidad y tus intereses. ¡Toda ayuda suma y es bienvenida!
-        </p>
-        <p
-          class="text-base-content/80 text-center mb-8 max-w-3xl mx-auto text-balance"
+          Donar 1€/mes con Teaming
+        </a>
+        <a
+          href="mailto:espargats@gmail.com"
+          class="btn btn-outline btn-lg rounded-full px-9 font-semibold border-primary/30 text-primary hover:bg-primary hover:text-primary-content"
         >
-          A continuación te mostramos algunas de las formas en las que puedes
-          ser voluntaria en la asociación:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <article
-            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
-          >
-            <span
-              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-              ><Drumstick /></span
-            >
-            <span class="flex-1">
-              <strong>Alimentando colonias</strong><br />
-              Ayuda a alimentar y cuidar a los gatos que viven en las colonias felinas
-              de Esparreguera.
-            </span>
-          </article>
-          <article
-            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
-          >
-            <span
-              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-              ><Cat /></span
-            >
-            <span class="flex-1">
-              <strong>Cuidado de los gatos del Refugi</strong><br />
-              Colabora en la atención y bienestar de los gatos que viven en El Refugi.
-            </span>
-          </article>
-          <article
-            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
-          >
-            <span
-              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-              ><CalendarHeart /></span
-            >
-            <span class="flex-1">
-              <strong>Apoyo en eventos solidarios</strong><br />
-              Participa en paraditas y actividades de recaudación de fondos como
-              Sant Jordi o la Fira de Santa Llúcia.
-            </span>
-          </article>
-          <article
-            class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-row items-center gap-4"
-          >
-            <span
-              class="inline-flex items-center justify-center rounded-full bg-primary/10 text-primary w-10 h-10 flex-shrink-0"
-              ><Handshake /></span
-            >
-            <span class="flex-1">
-              <strong>Asistencia en recogidas de alimentos</strong><br />
-              Ayuda en campañas de recogida de comida y productos para gatos en tiendas
-              colaboradoras.
-            </span>
-          </article>
-        </div>
-        <div class="flex justify-center mt-8">
-          <a
-            href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesada%20en%20ser%20voluntaria"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary btn-lg flex items-center gap-2"
-          >
-            <HandHeart />
-            <span>Quiero ser voluntaria</span>
-          </a>
-        </div>
+          Contactar con nosotras
+        </a>
       </div>
     </div>
   </section>
-  <section class="mb-20 max-w-5xl mx-auto px-2 md:px-6">
-    <h2 class="text-2xl font-bold mb-8 text-primary text-center">
-      Compra Solidaria en Amazon
-    </h2>
-    <p
-      class="text-base-content/80 text-center mb-4 max-w-3xl mx-auto text-balance"
-    >
-      Cuando compres productos para gatos a través de nuestros 'links amigo', un
-      pequeño porcentaje de tu compra se destinará automáticamente a nuestros
-      rescates. ¡No te cuesta nada extra y nos ayudas mucho!
-    </p>
-    <div role="alert" class="alert mb-8 max-w-3xl mx-auto">
-      <!-- class="text-base-content/80 text-center mb-8 text-balance bg-base-200/40 text-sm rounded-xl p-4" -->
-      <Info />
-      <p>
-        Espargats no recomienda ningún pienso, arena o marca de comida húmeda en
-        particular. Aquí abajo encontrarás productos que algunos de nuestros
-        adoptantes utilizan para sus gatos, que pueden ser los mismos que uses
-        tú. También hemos creado una selección de juguetes, rascadores y otros;
-        recomendaciones de nuestras casas de acogidas o adoptantes.
-      </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {
-        products.map((product) => (
-          <article class="card bg-base-100 border border-primary-content/40 transition-shadow hover:shadow-lg shadow-primary-content/40 p-6 flex flex-col gap-4 items-center text-center">
-            <img
-              src={product.image}
-              alt={product.name}
-              class="rounded-xl shadow w-full max-w-[180px] object-cover mb-4"
-            />
-            <h3 class="text-lg font-semibold mb-2">{product.name}</h3>
-            <p class="text-base-content/80 mb-2">{product.description}</p>
-            <a
-              href={product.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn bg-[#FF9900] text-black border-[#e17d00] btn-block flex items-center gap-2 mt-auto"
+
+  <!-- ── CÓMO PUEDES AYUDAR ─────────────────────────────────── -->
+  <section class="py-20 bg-base-200/60 relative overflow-clip">
+    <span
+      class="absolute top-0 right-0 w-80 h-80 rounded-full bg-pastel-mint/30 blur-3xl pointer-events-none"
+      aria-hidden="true"></span>
+    <span
+      class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-pastel-peach/30 blur-3xl pointer-events-none"
+      aria-hidden="true"></span>
+
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 animate-fade-in-up animate-play-paused">
+        <span
+          class="inline-flex items-center gap-2 text-primary/60 text-sm font-semibold tracking-widest uppercase mb-4"
+        >
+          <span class="w-6 h-px bg-primary/30"></span>
+          Colabora
+          <span class="w-6 h-px bg-primary/30"></span>
+        </span>
+        <h2
+          class="text-3xl md:text-4xl font-black text-primary tracking-tight mb-4"
+        >
+          ¿Cómo puedes ayudar?
+        </h2>
+        <p
+          class="text-base-content/70 max-w-2xl mx-auto text-lg leading-relaxed"
+        >
+          Hay muchas formas de colaborar con nosotros. Encuentra la que mejor se
+          ajuste a ti.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {
+          ways.map((w) => (
+            <div
+              class:list={[
+                'rounded-3xl p-7 flex flex-col border border-white/70 shadow-sm animate-fade-in-up animate-play-paused',
+                w.bg,
+              ]}
             >
-              <span>Comprar en Amazon</span>
-              <ArrowUpRight />
-            </a>
-          </article>
-        ))
-      }
+              <span class="mb-5 flex items-center justify-center w-12 h-12 rounded-2xl bg-white/60 shadow-sm flex-shrink-0">
+                <w.icon size="24" stroke-width="1.8" class="text-primary" />
+              </span>
+              <h3 class="text-lg font-extrabold mb-3 text-primary">
+                {w.title}
+              </h3>
+              <p class="text-base-content/75 text-base leading-relaxed flex-1 mb-6">
+                {w.text}
+              </p>
+              {w.iban ? (
+                <div class="font-mono text-sm bg-white/70 rounded-2xl px-4 py-3 text-center text-primary font-semibold tracking-wider select-all border border-white/80">
+                  {w.iban}
+                </div>
+              ) : (
+                <a
+                  href={w.href!}
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary btn-md rounded-full font-bold w-full"
+                >
+                  {w.cta}
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
-  <section class="bg-primary-content/20 px-2 md:px-6 py-20">
-    <div class="max-w-3xl mx-auto bg-base-100 rounded-xl shadow-lg p-8">
-      <h2 class="text-2xl font-bold mb-8 text-primary text-center">
-        ¡Síguenos en redes sociales!
+
+  <SectionDivider from="hsl(38,50%,93%)" to="hsl(40,60%,97%)" />
+
+  <!-- ── VOLUNTARIADO ───────────────────────────────────────── -->
+  <section class="py-20 bg-warm-cream relative overflow-clip">
+    <span
+      class="absolute top-0 right-0 w-72 h-72 rounded-full bg-pastel-lavender/30 blur-3xl pointer-events-none"
+      aria-hidden="true"></span>
+
+    <div
+      class="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start"
+    >
+      <div
+        class="animate-fade-in-left animate-play-paused lg:sticky top-28 flex flex-col"
+      >
+        <span
+          class="inline-flex items-center gap-3 text-primary/60 text-sm font-semibold tracking-widest uppercase mb-5"
+        >
+          <span class="w-6 h-px bg-primary/30"></span>
+          Voluntariado
+        </span>
+        <h2
+          class="text-3xl md:text-4xl font-black text-primary tracking-tight leading-tight mb-6"
+        >
+          Forma parte del equipo
+        </h2>
+        <p class="text-base-content/75 text-lg leading-relaxed mb-4">
+          Ser voluntaria en Espargats significa formar parte de una comunidad
+          que trabaja cada día para mejorar la vida de los gatos callejeros y
+          abandonados.
+        </p>
+        <p class="text-base-content/75 text-lg leading-relaxed mb-8">
+          Puedes colaborar de muchas maneras según tu disponibilidad e
+          intereses. ¡Toda ayuda suma y es bienvenida!
+        </p>
+        <a
+          href="mailto:espargats@gmail.com?subject=Hola,%20estoy%20interesada%20en%20ser%20voluntaria"
+          class="btn btn-primary btn-md rounded-full font-bold px-7 mx-auto lg:mx-0 w-fit"
+        >
+          Quiero ser voluntaria
+        </a>
+      </div>
+
+      <div
+        class="animate-fade-in-right animate-play-paused grid grid-cols-1 gap-4"
+      >
+        {
+          volunteeringRoles.map((role) => (
+            <div class="rounded-3xl bg-white p-6 flex items-start gap-5 border border-base-200/80 shadow-sm">
+              <span class="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-2xl bg-pastel-lavender/60">
+                <role.icon size="22" stroke-width="1.8" class="text-primary" />
+              </span>
+              <div>
+                <h3 class="font-extrabold text-primary mb-1">{role.title}</h3>
+                <p class="text-base-content/70 text-sm leading-relaxed">
+                  {role.text}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider from="hsl(40,60%,97%)" to="hsl(275,55%,95%)" />
+
+  <!-- ── COMPRA SOLIDARIA ───────────────────────────────────── -->
+  <section
+    class="py-20 relative overflow-clip"
+    style="background: hsl(275,55%,95%)"
+  >
+    <span
+      class="absolute top-0 left-0 w-72 h-72 rounded-full bg-pastel-lavender/40 blur-3xl pointer-events-none"
+      aria-hidden="true"></span>
+    <span
+      class="absolute bottom-0 right-0 w-60 h-60 rounded-full bg-pastel-mint/30 blur-2xl pointer-events-none"
+      aria-hidden="true"></span>
+
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-10 animate-fade-in-up animate-play-paused">
+        <span
+          class="inline-flex items-center gap-2 text-primary/60 text-sm font-semibold tracking-widest uppercase mb-4"
+        >
+          <span class="w-6 h-px bg-primary/30"></span>
+          Amazon
+          <span class="w-6 h-px bg-primary/30"></span>
+        </span>
+        <h2
+          class="text-3xl md:text-4xl font-black text-primary tracking-tight mb-4"
+        >
+          Compra solidaria
+        </h2>
+        <p
+          class="text-base-content/70 max-w-2xl mx-auto text-lg leading-relaxed"
+        >
+          Cuando compras a través de nuestros enlaces, un porcentaje de tu
+          compra se destina automáticamente a nuestros rescates. No te cuesta
+          nada extra.
+        </p>
+      </div>
+
+      <div
+        class="max-w-2xl mx-auto mb-10 animate-fade-in-up animate-play-paused"
+      >
+        <div
+          class="rounded-2xl bg-white/60 border border-white/80 px-5 py-4 flex gap-3 items-start text-sm text-base-content/70 leading-relaxed"
+        >
+          <Info
+            size="18"
+            stroke-width="1.8"
+            class="text-primary/60 flex-shrink-0 mt-0.5"
+          />
+          <p>
+            Espargats no recomienda ninguna marca en particular. Los productos
+            son los que utilizan nuestros adoptantes y casas de acogida.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {
+          products.map((prod) => (
+            <div
+              class:list={[
+                'rounded-3xl p-7 flex flex-col border border-white/70 shadow-sm animate-fade-in-up animate-play-paused',
+                prod.bg,
+              ]}
+            >
+              <span class="mb-5 flex items-center justify-center w-12 h-12 rounded-2xl bg-white/60 shadow-sm flex-shrink-0">
+                <prod.icon size="24" stroke-width="1.8" class="text-primary" />
+              </span>
+              <h3 class="text-lg font-extrabold mb-3 text-primary">
+                {prod.title}
+              </h3>
+              <p class="text-base-content/75 text-base leading-relaxed flex-1 mb-6">
+                {prod.text}
+              </p>
+              <a
+                href={prod.href}
+                target="_blank"
+                rel="noopener"
+                class="btn btn-sm rounded-full font-bold w-full border-none flex items-center gap-1.5"
+                style="background:#FF9900;color:#000;"
+              >
+                Comprar en Amazon
+                <ArrowUpRight size="15" stroke-width="2.5" />
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider from="hsl(275,55%,95%)" to="hsl(40,60%,97%)" />
+
+  <!-- ── REDES SOCIALES ───────────────────────────── -->
+  <section class="py-20 bg-warm-cream relative overflow-clip">
+    <span
+      class="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-pastel-rose/30 blur-3xl pointer-events-none"
+      aria-hidden="true"></span>
+
+    <div
+      class="max-w-3xl mx-auto px-6 text-center animate-fade-in-up animate-play-paused"
+    >
+      <span class="text-3xl mb-4 block" aria-hidden="true">💜</span>
+      <h2
+        class="text-3xl md:text-4xl font-black text-primary tracking-tight mb-5"
+      >
+        ¡Síguenos en redes!
       </h2>
-      <p class="text-base-content/80 text-center mb-4">
-        Síguenos, comenta, comparte 💖. En nuestras redes compartimos casos de
-        gatos perdidos y gatos que buscan un hogar definitivo. También
-        información y curiosidades sobre los gatos y algún que otro chiste😸.
+      <p class="text-base-content/70 text-lg leading-relaxed mb-3">
+        Síguenos, comenta, comparte. Compartimos casos de gatos perdidos y gatos
+        que buscan un hogar, información, curiosidades y algún chiste felino.
       </p>
-      <p class="text-base-content/60 text-center mb-8">
+      <p class="text-base-content/55 text-base leading-relaxed mb-10">
         Apóyanos compartiendo nuestro contenido. Quizá consigas ayudar a que una
-        familia haga 'match' con su amor felino.
+        familia haga match con su amor felino.
       </p>
-      <div class="flex gap-4 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="http://www.instagram.com/espargats"
           target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary btn-outline flex items-center gap-2"
+          rel="noopener"
+          class="btn btn-primary btn-lg rounded-full px-9 font-bold shadow-md flex items-center gap-2"
         >
-          <span>Ir al perfil de Instagram</span>
-          <ArrowUpRight />
+          <span>Instagram</span>
+          <ArrowUpRight size="18" stroke-width="2" />
         </a>
         <a
           href="http://www.facebook.com/espargats"
           target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary btn-outline flex items-center gap-2"
+          rel="noopener"
+          class="btn btn-outline btn-lg rounded-full px-9 font-semibold border-primary/30 text-primary hover:bg-primary hover:text-primary-content flex items-center gap-2"
         >
-          <span>Ir al perfil de Facebook</span>
-          <ArrowUpRight />
+          <span>Facebook</span>
+          <ArrowUpRight size="18" stroke-width="2" />
         </a>
       </div>
     </div>
   </section>
-  <Breadcrumbs
-    links={[{ label: 'Inicio', href: '/' }, { label: 'Colabora' }]}
-  />
 </Layout>
