@@ -2,39 +2,47 @@
 import { Menu } from '@lucide/astro';
 ---
 
-<header class="navbar fixed z-10 top-0 glass bg-base-100">
-  <div class="navbar-start">
-    <a href="/" class="btn btn-ghost normal-case text-xl">
-      <img src="/espargats-logo.webp" alt="Logo Espargats" class="h-8 w-auto" />
-      <span>Espargats</span>
-    </a>
-  </div>
-  <div class="navbar-end">
-    <!-- Menú para pantallas grandes -->
-    <nav class="hidden lg:flex">
-      <ul class="menu
+<div class="fixed top-4 left-0 right-0 z-50 px-4">
+  <header
+    class="navbar max-w-6xl mx-auto rounded-2xl backdrop-blur-md bg-base-100/80 border border-base-200/60 shadow-sm"
+  >
+    <div class="navbar-start">
+      <a href="/" class="btn btn-ghost normal-case text-xl">
+        <img
+          src="/espargats-logo.webp"
+          alt="Logo Espargats"
+          class="h-8 w-auto"
+        />
+        <span>Espargats</span>
+      </a>
+    </div>
+    <div class="navbar-end">
+      <!-- Menú para pantallas grandes -->
+      <nav class="hidden lg:flex">
+        <ul class="menu
       menu-horizontal
       px-1">
-        <li>
-          <a href="/about">Sobre nosotros</a>
-        </li>
-        <li><a href="/adopta">Adopta</a></li>
-        <li><a href="/colabora">Colabora</a></li>
-      </ul>
-    </nav>
-    <!-- Menú hamburguesa para móviles -->
-    <div class="dropdown dropdown-end lg:hidden">
-      <label tabindex="0" class="btn btn-ghost btn-circle">
-        <Menu />
-      </label>
-      <ul
-        tabindex="0"
-        class="menu menu-lg dropdown-content z-20 p-4 w-max bg-base-100 rounded-md"
-      >
-        <li><a href="/about">Sobre nosotros</a></li>
-        <li><a href="/adopta">Adopta</a></li>
-        <li><a href="/colabora">Colabora</a></li>
-      </ul>
+          <li>
+            <a href="/about">Sobre nosotros</a>
+          </li>
+          <li><a href="/adopta">Adopta</a></li>
+          <li><a href="/colabora">Colabora</a></li>
+        </ul>
+      </nav>
+      <!-- Menú hamburguesa para móviles -->
+      <div class="dropdown dropdown-end lg:hidden">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <Menu />
+        </label>
+        <ul
+          tabindex="0"
+          class="menu menu-lg dropdown-content z-20 p-4 w-max bg-base-100 rounded-md"
+        >
+          <li><a href="/about">Sobre nosotros</a></li>
+          <li><a href="/adopta">Adopta</a></li>
+          <li><a href="/colabora">Colabora</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</div>

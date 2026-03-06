@@ -42,11 +42,26 @@ const { title, description } = Astro.props;
 
   <body class="flex flex-col min-h-screen z-10">
     <Header />
-    <main class="flex-1 pt-16 z-0">
+    <main class="flex-1 z-0">
       <slot />
     </main>
     <Footer />
-  </body><style>
+  </body><script>
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('animate-play-paused');
+            obs.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12 },
+    );
+    document
+      .querySelectorAll('.animate-play-paused')
+      .forEach((el) => observer.observe(el));
+  </script><style>
     html,
     body {
       margin: 0;

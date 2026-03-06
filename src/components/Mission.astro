@@ -34,7 +34,7 @@ const pillars = [
 
 <section class="py-20 bg-base-200/60">
   <div class="max-w-4xl mx-auto px-4">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 animate-fade-in-up animate-play-paused">
       <h2
         class="text-3xl md:text-4xl font-black md:text-center mb-4 text-primary tracking-tight"
       >
@@ -52,7 +52,7 @@ const pillars = [
         pillars.map((p) => (
           <article
             class:list={[
-              'rounded-3xl p-8 flex flex-col items-center text-center shadow-sm border border-white/80',
+              'rounded-3xl p-8 flex flex-col items-center text-center shadow-sm border border-white/80 animate-fade-in-up animate-play-paused',
               p.bg,
             ]}
           >
